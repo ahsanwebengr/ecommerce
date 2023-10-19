@@ -5,5 +5,6 @@ import paymentLogo from "./paymentLogo.png";
 import googleLogo from "./googleLogo.png";
 import githubLogo from "./githubLogo.png";
 import userAvatar from './avatar.jpg';
+import brandLogo from './logo.png';
 
-export { logoDark, logoLight, cartImg, paymentLogo, googleLogo, githubLogo, userAvatar };
+export { logoDark, logoLight, cartImg, paymentLogo, googleLogo, githubLogo, userAvatar, brandLogo };

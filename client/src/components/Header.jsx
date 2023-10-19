@@ -1,58 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { cartImg, logoDark, userAvatar } from "../assets/index";
+import { brandLogo, userAvatar } from "../assets/index";
+import { HiOutlineMenuAlt1, HiOutlineShoppingCart } from 'react-icons/hi';
+import { AiOutlineClose } from 'react-icons/ai';
 
 const Header = () => {
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     return (
-        <div className="w-full h-20 bg-white font-titleFont border-b-[1px] border-b-gray-800 sticky top-0 z-50">
-            <div className="max-w-screen-xl h-full mx-auto flex items-center justify-between">
-                <Link to="/">
-                    <div>
-                        <img className="w-28" src={logoDark} alt="logoDark" />
+        <nav className="sticky top-0 left-0 shadow-lg z-40 w-full bg-white">
+            <div className="flex items-center justify-between py-6 px-8 max-w-screen-xl mx-auto">
+                <a href="./index.html">
+                    <img src={brandLogo} alt="Logo" className="w-18" />
+                </a>
+                <ul className={`${isSidebarOpen ? 'right-0' : 'right-[-100%]'} flex flex-col md:flex-row items-center justify-center gap-5 fixed md:static top-[86px]  w-72 md:w-auto h-screen md:h-auto bg-gray-200 shadow-lg md:shadow-none md:bg-transparent transition-all duration-200`}>
+                    <li className="nav-items">
+                        <a href="./index.html" className="text-xl font-semibold text-gray-700 transition-all duration-150 hover:text-purple-700 ">Home</a>
+                    </li>
+                    <li className="nav-items">
+                        <a href="./about.html" className="text-xl font-semibold text-gray-700 transition-all duration-150 hover:text-purple-700 ">About</a>
+                    </li>
+                    <li className="nav-items">
+                        <a href="./shop.html" className="text-xl font-semibold text-gray-700 transition-all duration-150 hover:text-purple-700">Shop</a>
+                    </li>
+                    <li className="nav-items">
+                        <a href="./blog.html" className="text-xl font-semibold text-gray-700 transition-all duration-150 hover:text-purple-700">Blog</a>
+                    </li>
+                    <li className="nav-items">
+                        <a href="./contact.html" className="text-xl font-semibold text-gray-700 transition-all duration-150 hover:text-purple-700">Contact</a>
+                    </li>
+                    <li className="nav-items relative">
+                        <HiOutlineShoppingCart size={30} className="text-gray-700" />
+                        <span className="absolute top-[-12px] right-[-15px] w-5 h-5 rounded-full text-white bg-purple-700 text-xs flex items-center justify-center font-semibold font-titleFont">
+                            0
+                        </span>
+                    </li>
+                </ul>
+                <div className="flex md:hidden gap-4 items-center">
+                    <div className="relative">
+                        <HiOutlineShoppingCart size={30} className="" />
+                        <span className="absolute top-[-12px] right-[-15px] w-5 h-5 rounded-full text-white bg-purple-700 text-xs flex items-center justify-center font-semibold font-titleFont">
+                            0
+                        </span>
                     </div>
-                </Link>
-                <div className="flex items-center gap-8">
-                    <ul className="flex item-center gap-8">
-                        <Link to="/">
-                            <li className="text-base text-black font-bold hover:text-green-500 hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300">
-                                Home
-                            </li>
-                        </Link>
-                        <li className="text-base text-black font-bold hover:text-green-500 hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300">
-                            Pages
-                        </li>
-                        <li className="text-base text-black font-bold hover:text-green-500 hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300">
-                            Shop
-                        </li>
-                        <li className="text-base text-black font-bold hover:text-green-500 hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300">
-                            Element
-                        </li>
-                        <li className="text-base text-black font-bold hover:text-green-500 hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300">
-                            Blog
-                        </li>
-                    </ul>
-                    <Link to="/cart">
-                        <div className="relative">
-                            <img className="w-6" src={cartImg} alt="cartImg" />
-                            <span className="absolute w-6 top-2 left-0 text-sm flex items-center justify-center font-semibold font-titleFont">
-                                0
-                            </span>
-                        </div>
-                    </Link>
+                    <span className="text-gray-700" onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
+                        {isSidebarOpen ? <AiOutlineClose size={30} /> : <HiOutlineMenuAlt1 size={30} />}
+                    </span>
 
-                    <Link to="/login">
-                        <img className="w-10 h-10 rounded-full border-2" src={userAvatar} alt="userLogo"
-                        />
-                    </Link>
-
-                    {/* {userInfo && (
-                        <p className="text-base font-titleFont font-semibold underline underline-offset-2">
-                            {userInfo.name}
-                        </p>
-                    )} */}
                 </div>
             </div>
-        </div>
+        </nav>
     );
 };
 
