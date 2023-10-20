@@ -8,7 +8,7 @@ const Header = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     return (
         <nav className="sticky top-0 left-0 shadow-lg z-40 w-full bg-white">
-            <div className="flex items-center justify-between py-6 px-8 max-w-screen-xl mx-auto">
+            <div className="flex items-center justify-between py-6 px-4 md:px-8 max-w-screen-xl mx-auto">
                 <a href="./index.html">
                     <img src={brandLogo} alt="Logo" className="w-18" />
                 </a>

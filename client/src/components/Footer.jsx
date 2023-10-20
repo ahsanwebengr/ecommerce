@@ -1,4 +1,5 @@
 import React from "react";
+import { app, brandLogo, pay, play } from "../assets";
 import { ImGithub } from "react-icons/im";
 import {
     FaFacebookF,
@@ -8,84 +9,69 @@ import {
     FaHome,
 } from "react-icons/fa";
 import { MdLocationOn } from "react-icons/md";
-import { BsPersonFill, BsPaypal } from "react-icons/bs";
+import { BsPersonFill, BsPaypal, BsFacebook, BsInstagram, BsGithub } from "react-icons/bs";
 import { logoLight, paymentLogo } from "../assets";
 
 const Footer = () => {
     return (
-        <footer className="bg-black text-[#949494]  font-titleFont">
-            <div className="container px-2">
-                <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-5 py-20">
-                    <div className="flex flex-col gap-7">
-                        <img className="w-32" src={logoLight} alt="logoLight" />
-                        <img className="w-56" src={paymentLogo} alt="paymentLogo" />
-                        <ul className="flex gap-5 text-lg text-gray-400">
-                            <li><ImGithub className="hover:text-white duration-300 cursor-pointer" /></li>
-                            <li>
-                                <FaYoutube className="hover:text-white duration-300 cursor-pointer" />
-                            </li>
-                            <li>
-                                <FaFacebookF className="hover:text-white duration-300 cursor-pointer" />
-                            </li>
-                            <li>
-                                <FaTwitter className="hover:text-white duration-300 cursor-pointer" />
-                            </li>
-                            <li>
-                                <FaInstagram className="hover:text-white duration-300 cursor-pointer" />
-                            </li>
+        <footer className="pt-10 pb-5 bg-gray-900">
+            <div className="container max-w-screen-xl mx-auto px-4 md:px-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                    <div className="footer-1">
+                        <img src={brandLogo} alt="Logo" className="mb-5 w-18" />
+                        <ul className="flex flex-col gap-3 text-gray-700 text-base md:text-xl">
+                            <li className="text-white/60"><b className="text-white">Address :</b> Okara , Pakistan</li>
+                            <li className="text-white/60"><b className="text-white">Phone :</b> +92 - 3074961 - 938</li>
+                            <li className="text-white/60"><b className="text-white">Hours :</b>10.00 - 18. 00</li>
+                        </ul>
+                        <div className="mt-4">
+                            <h4 className="text-xl md:text-3xl font-bold text-white mb-3">Follow Us</h4>
+                            <div className="flex items-center gap-4">
+                                <a href="https://www.facebook.com/ahsanmughal512/" className="border-2 border-white text-white w-12 h-12 hover:bg-white hover:text-black transition-all duration-300 rounded-full flex items-center justify-center text-2xl" target="_blank">
+                                    <BsFacebook />
+                                </a>
+                                <a href="https://www.instagram.com/ahsan__05/" className="border-2 border-white text-white w-12 h-12 hover:bg-white hover:text-black transition-all duration-300 rounded-full flex items-center justify-center text-2xl" target="_blank">
+                                    <BsInstagram />
+                                </a>
+                                <a href="https://github.com/Iamahsan512" className="border-2 border-white text-white w-12 h-12 hover:bg-white hover:text-black transition-all duration-300 rounded-full flex items-center justify-center text-2xl" target="_blank">
+                                    <BsGithub />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="footer-2">
+                        <h4 className="text-xl md:text-3xl font-bold text-white mb-3">About</h4>
+                        <ul className="flex flex-col gap-3">
+                            <li><a className="hover:text-white hover:underline text-white/60 text-base md:text-xl font-medium" href="./about.html">About Us</a></li>
+                            <li><a className="hover:text-white hover:underline text-white/60 text-base md:text-xl font-medium" href="">Delivery Information</a></li>
+                            <li><a className="hover:text-white hover:underline text-white/60 text-base md:text-xl font-medium" href="">Privacy & Policy </a></li>
+                            <li><a className="hover:text-white hover:underline text-white/60 text-base md:text-xl font-medium" href="">Terms & Conditions </a></li>
+                            <li><a className="hover:text-white hover:underline text-white/60 text-base md:text-xl font-medium" href="./contact.html">Contact Us</a></li>
                         </ul>
                     </div>
-                    <div>
-                        <h2 className="text-2xl font-semibold text-white mb-4">Locate us</h2>
-                        <ul className="text-base flex flex-col gap-2">
-                            <ul>MBD,Ruwi, Muscat-Oman</ul>
-                            <ul>Mobile: 00968 97859628</ul>
-                            <ul>Phone: 00968 24769821</ul>
-                            <ul>e-mail: bazar@gmail.com</ul>
+                    <div className="footer-3">
+                        <h4 className="text-xl md:text-3xl font-bold text-white mb-3">My Accounts</h4>
+                        <ul className="flex flex-col gap-3">
+                            <li><a className="hover:text-white hover:underline text-white/60 text-base md:text-xl font-medium" href="">Sign in</a></li>
+                            <li><a className="hover:text-white hover:underline text-white/60 text-base md:text-xl font-medium" href="">View Cart</a></li>
+                            <li><a className="hover:text-white hover:underline text-white/60 text-base md:text-xl font-medium" href="">My Wishlist </a></li>
+                            <li><a className="hover:text-white hover:underline text-white/60 text-base md:text-xl font-medium" href="">Track my Order </a></li>
+                            <li><a className="hover:text-white hover:underline text-white/60 text-base md:text-xl font-medium" href="">Help</a></li>
                         </ul>
                     </div>
-                    <div>
-                        <h2 className="text-2xl font-semibold text-white mb-4">Profile</h2>
-                        <ul className="text-base flex flex-col gap-2">
-                            <li className="flex items-center gap-3 hover:text-white duration-300 cursor-pointer">
-                                <span className="text-lg">
-                                    <BsPersonFill />
-                                </span>
-                                My Account
-                            </li>
-                            <li className="flex items-center gap-3 hover:text-white duration-300 cursor-pointer">
-                                <span className="text-lg">
-                                    <BsPaypal />
-                                </span>
-                                Checkout
-                            </li>
-                            <li className="flex items-center gap-3 hover:text-white duration-300 cursor-pointer">
-                                <span className="text-lg">
-                                    <FaHome />
-                                </span>
-                                Order Tracking
-                            </li>
-                            <li className="flex items-center gap-3 hover:text-white duration-300 cursor-pointer">
-                                <span className="text-lg">
-                                    <MdLocationOn />
-                                </span>
-                                Help & Support
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="flex flex-col justify-center">
-                        <input
-                            className="bg-transparent border px-4 py-2 text-sm"
-                            type="text"
-                            placeholder="Email"
-                        />
-                        <button className="text-sm border text-white border-t-0 hover:bg-gray-900 active:bg-white active:text-black">
-                            Subscribe
-                        </button>
+                    <div className="footer-4">
+                        <h4 className="text-xl md:text-3xl font-bold text-white mb-3">Install Application</h4>
+                        <p className="text-lg text-white/90">From App Store or Google Play</p>
+                        <div className="flex gap-2 items-center flex-wrap my-2.5">
+                            <img src={app} alt="App" className="border-2 object-contain rounded-md" />
+                            <img src={play} alt="Play" className="border-2 object-contain rounded-md" />
+                        </div>
+                        <p className="text-lg text-white/90 mb-2">Secured Payment Gateways</p>
+                        <img src={pay} alt="pay" className="border-2 object-contain rounded-md p-2" />
                     </div>
                 </div>
-                <div className="text-center">
-                    <p className="text-white text-sm tracking-wide">© Copyright 2023 All right reserved by Muhammad Ahsan</p>
+                <div className="text-center mt-6">
+                    <p className="text-xl text-white/75"> © Copyright All right reserved by <span>Muhammad Ahsan</span></p>
                 </div>
             </div>
         </footer>
