@@ -11,6 +11,7 @@ import {
 import { MdLocationOn } from "react-icons/md";
 import { BsPersonFill, BsPaypal, BsFacebook, BsInstagram, BsGithub } from "react-icons/bs";
 import { logoLight, paymentLogo } from "../assets";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
@@ -42,7 +43,7 @@ const Footer = () => {
                     <div className="footer-2">
                         <h4 className="text-xl md:text-3xl font-bold text-white mb-3">About</h4>
                         <ul className="flex flex-col gap-3">
-                            <li><a className="hover:text-white hover:underline text-white/60 text-base md:text-xl font-medium" href="./about.html">About Us</a></li>
+                            <li><Link className="hover:text-white hover:underline text-white/60 text-base md:text-xl font-medium" to={'/about'}>About Us</Link></li>
                             <li><a className="hover:text-white hover:underline text-white/60 text-base md:text-xl font-medium" href="">Delivery Information</a></li>
                             <li><a className="hover:text-white hover:underline text-white/60 text-base md:text-xl font-medium" href="">Privacy & Policy </a></li>
                             <li><a className="hover:text-white hover:underline text-white/60 text-base md:text-xl font-medium" href="">Terms & Conditions </a></li>
