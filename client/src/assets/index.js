@@ -9,5 +9,12 @@ import brandLogo from './logo.png';
 import app from './app.png';
 import pay from './pay.png';
 import play from './play.png';
+import heroImg from './hero.png';
+import feature1 from './f1.png'
+import feature2 from './f2.png'
+import feature3 from './f3.png'
+import feature4 from './f4.png'
+import feature5 from './f5.png'
+import feature6 from './f6.png'
 
-export { logoDark, logoLight, cartImg, paymentLogo, googleLogo, githubLogo, userAvatar, brandLogo, app, play, pay };
+export { logoDark, logoLight, cartImg, paymentLogo, googleLogo, githubLogo, userAvatar, brandLogo, app, play, pay, heroImg ,feature1,feature2,feature3,feature4,feature5,feature6};

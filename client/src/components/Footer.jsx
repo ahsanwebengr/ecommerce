@@ -1,22 +1,12 @@
 import React from "react";
 import { app, brandLogo, pay, play } from "../assets";
-import { ImGithub } from "react-icons/im";
-import {
-    FaFacebookF,
-    FaTwitter,
-    FaInstagram,
-    FaYoutube,
-    FaHome,
-} from "react-icons/fa";
-import { MdLocationOn } from "react-icons/md";
-import { BsPersonFill, BsPaypal, BsFacebook, BsInstagram, BsGithub } from "react-icons/bs";
-import { logoLight, paymentLogo } from "../assets";
+import { BsFacebook, BsInstagram, BsGithub } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
         <footer className="pt-10 pb-5 bg-gray-900">
-            <div className="container max-w-screen-xl mx-auto px-4 md:px-8">
+            <div className="container">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                     <div className="footer-1">
                         <img src={brandLogo} alt="Logo" className="mb-5 w-18" />
@@ -28,15 +18,15 @@ const Footer = () => {
                         <div className="mt-4">
                             <h4 className="text-xl md:text-3xl font-bold text-white mb-3">Follow Us</h4>
                             <div className="flex items-center gap-4">
-                                <a href="https://www.facebook.com/ahsanmughal512/" className="border-2 border-white text-white w-12 h-12 hover:bg-white hover:text-black transition-all duration-300 rounded-full flex items-center justify-center text-2xl" target="_blank">
+                                <Link to="https://www.facebook.com/ahsanwebengr/" className="border-2 border-white text-white w-12 h-12 hover:bg-white hover:text-black transition-all duration-300 rounded-full flex items-center justify-center text-2xl" target="_blank">
                                     <BsFacebook />
-                                </a>
-                                <a href="https://www.instagram.com/ahsan__05/" className="border-2 border-white text-white w-12 h-12 hover:bg-white hover:text-black transition-all duration-300 rounded-full flex items-center justify-center text-2xl" target="_blank">
+                                </Link>
+                                <Link to="https://www.instagram.com/ahsan__ig/" className="border-2 border-white text-white w-12 h-12 hover:bg-white hover:text-black transition-all duration-300 rounded-full flex items-center justify-center text-2xl" target="_blank">
                                     <BsInstagram />
-                                </a>
-                                <a href="https://github.com/Iamahsan512" className="border-2 border-white text-white w-12 h-12 hover:bg-white hover:text-black transition-all duration-300 rounded-full flex items-center justify-center text-2xl" target="_blank">
+                                </Link>
+                                <Link to="https://www.linkedin.com/in/ahsanwebengr/" className="border-2 border-white text-white w-12 h-12 hover:bg-white hover:text-black transition-all duration-300 rounded-full flex items-center justify-center text-2xl" target="_blank">
                                     <BsGithub />
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>

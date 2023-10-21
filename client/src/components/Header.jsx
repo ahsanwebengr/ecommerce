@@ -8,25 +8,25 @@ const Header = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     return (
         <nav className="sticky top-0 left-0 shadow-lg z-40 w-full bg-white">
-            <div className="flex items-center justify-between py-6 px-4 md:px-8 max-w-screen-xl mx-auto">
+            <div className="container py-6 flex items-center justify-between">
                 <Link to={'/'}>
                     <img src={brandLogo} alt="Logo" className="w-18" />
                 </Link>
                 <ul className={`${isSidebarOpen ? 'right-0' : 'right-[-100%]'} flex flex-col md:flex-row items-center justify-center gap-5 fixed md:static top-[86px]  w-72 md:w-auto h-screen md:h-auto bg-gray-200 shadow-lg md:shadow-none md:bg-transparent transition-all duration-200`}>
                     <li className="nav-items">
-                        <NavLink to={'/'} className="text-xl font-semibold text-gray-700 transition-all duration-150 hover:text-purple-700 ">Home</NavLink>
+                        <NavLink to={'/'} className="text-xl font-semibold text-gray-700 transition-all duration-150 hover:text-purple-700 hover:underline underline-offset-4 ">Home</NavLink>
                     </li>
                     <li className="nav-items">
-                        <NavLink to={'/about'} className="text-xl font-semibold text-gray-700 transition-all duration-150 hover:text-purple-700 ">About</NavLink>
+                        <NavLink to={'/about'} className="text-xl font-semibold text-gray-700 transition-all duration-150 hover:text-purple-700 hover:underline underline-offset-4 ">About</NavLink>
                     </li>
                     <li className="nav-items">
-                        <a href="./shop.html" className="text-xl font-semibold text-gray-700 transition-all duration-150 hover:text-purple-700">Shop</a>
+                        <a href="./shop.html" className="text-xl font-semibold text-gray-700 transition-all duration-150 hover:text-purple-700 hover:underline underline-offset-4">Shop</a>
                     </li>
                     <li className="nav-items">
-                        <a href="./blog.html" className="text-xl font-semibold text-gray-700 transition-all duration-150 hover:text-purple-700">Blog</a>
+                        <a href="./blog.html" className="text-xl font-semibold text-gray-700 transition-all duration-150 hover:text-purple-700 hover:underline underline-offset-4">Blog</a>
                     </li>
                     <li className="nav-items">
-                        <a href="./contact.html" className="text-xl font-semibold text-gray-700 transition-all duration-150 hover:text-purple-700">Contact</a>
+                        <a href="./contact.html" className="text-xl font-semibold text-gray-700 transition-all duration-150 hover:text-purple-700 hover:underline underline-offset-4">Contact</a>
                     </li>
                     <li className="nav-items relative">
                         <HiOutlineShoppingCart size={30} className="text-gray-700" />
