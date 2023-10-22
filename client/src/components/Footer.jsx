@@ -62,7 +62,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="text-center mt-6">
-                    <p className="text-xl text-white/75"> © Copyright All right reserved by <span>Muhammad Ahsan</span></p>
+                    <p className="text-base md:text-xl text-white/75"> © Copyright All right reserved by <span>Muhammad Ahsan</span></p>
                 </div>
             </div>
         </footer>
