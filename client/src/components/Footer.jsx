@@ -37,14 +37,14 @@ const Footer = () => {
                             <li><a className="hover:text-white hover:underline text-white/60 text-base md:text-xl font-medium" href="">Delivery Information</a></li>
                             <li><a className="hover:text-white hover:underline text-white/60 text-base md:text-xl font-medium" href="">Privacy & Policy </a></li>
                             <li><a className="hover:text-white hover:underline text-white/60 text-base md:text-xl font-medium" href="">Terms & Conditions </a></li>
-                            <li><a className="hover:text-white hover:underline text-white/60 text-base md:text-xl font-medium" href="./contact.html">Contact Us</a></li>
+                            <li><Link className="hover:text-white hover:underline text-white/60 text-base md:text-xl font-medium" to={'/contact'}>Contact Us</Link></li>
                         </ul>
                     </div>
                     <div className="footer-3">
                         <h4 className="text-xl md:text-3xl font-bold text-white mb-3">My Accounts</h4>
                         <ul className="flex flex-col gap-3">
                             <li><a className="hover:text-white hover:underline text-white/60 text-base md:text-xl font-medium" href="">Sign in</a></li>
-                            <li><a className="hover:text-white hover:underline text-white/60 text-base md:text-xl font-medium" href="">View Cart</a></li>
+                            <li><Link className="hover:text-white hover:underline text-white/60 text-base md:text-xl font-medium" to={'/cart'}>View Cart</Link></li>
                             <li><a className="hover:text-white hover:underline text-white/60 text-base md:text-xl font-medium" href="">My Wishlist </a></li>
                             <li><a className="hover:text-white hover:underline text-white/60 text-base md:text-xl font-medium" href="">Track my Order </a></li>
                             <li><a className="hover:text-white hover:underline text-white/60 text-base md:text-xl font-medium" href="">Help</a></li>

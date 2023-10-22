@@ -7,7 +7,7 @@ import { AiOutlineClose } from 'react-icons/ai';
 const Header = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     return (
-        <nav className="sticky top-0 left-0 shadow-lg z-40 w-full bg-white">
+        <nav className="sticky top-0 left-0 shadow-xl z-40 w-full bg-white">
             <div className="container py-6 flex items-center justify-between">
                 <Link to={'/'}>
                     <img src={brandLogo} alt="Logo" className="w-18" />
@@ -26,22 +26,24 @@ const Header = () => {
                         <a href="./blog.html" className="text-xl font-semibold text-gray-700 transition-all duration-150 hover:text-purple-700 hover:underline underline-offset-4">Blog</a>
                     </li>
                     <li className="nav-items">
-                        <a href="./contact.html" className="text-xl font-semibold text-gray-700 transition-all duration-150 hover:text-purple-700 hover:underline underline-offset-4">Contact</a>
+                        <NavLink to={'/contact'} className="text-xl font-semibold text-gray-700 transition-all duration-150 hover:text-purple-700 hover:underline underline-offset-4">Contact</NavLink>
                     </li>
-                    <li className="nav-items relative">
-                        <HiOutlineShoppingCart size={30} className="text-gray-700" />
-                        <span className="absolute top-[-12px] right-[-15px] w-5 h-5 rounded-full text-white bg-purple-700 text-xs flex items-center justify-center font-semibold font-titleFont">
-                            0
-                        </span>
+                    <li className="nav-items relative hidden md:block">
+                        <Link to={'cart'}>
+                            <HiOutlineShoppingCart size={30} className="text-gray-700" />
+                            <span className="absolute top-[-12px] right-[-15px] w-5 h-5 rounded-full text-white bg-purple-700 text-xs flex items-center justify-center font-semibold font-titleFont">
+                                0
+                            </span>
+                        </Link>
                     </li>
                 </ul>
                 <div className="flex md:hidden gap-4 items-center">
-                    <div className="relative">
+                    <Link to={'/cart'} className="relative md:hidden">
                         <HiOutlineShoppingCart size={30} className="" />
                         <span className="absolute top-[-12px] right-[-15px] w-5 h-5 rounded-full text-white bg-purple-700 text-xs flex items-center justify-center font-semibold font-titleFont">
                             0
                         </span>
-                    </div>
+                    </Link>
                     <span className="text-gray-700" onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
                         {isSidebarOpen ? <AiOutlineClose size={30} /> : <HiOutlineMenuAlt1 size={30} />}
                     </span>
