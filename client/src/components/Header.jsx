@@ -3,9 +3,12 @@ import { Link, NavLink } from "react-router-dom";
 import { brandLogo, userAvatar } from "../assets/index";
 import { HiOutlineMenuAlt1, HiOutlineShoppingCart } from 'react-icons/hi';
 import { AiOutlineClose } from 'react-icons/ai';
+import { useSelector } from "react-redux";
 
 const Header = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const productData = useSelector((state) => state.counter.productData);
+    console.log(productData);
     return (
         <nav className="sticky top-0 left-0 shadow-xl z-40 w-full bg-white">
             <div className="container py-6 flex items-center justify-between">
@@ -32,7 +35,7 @@ const Header = () => {
                         <Link to={'cart'}>
                             <HiOutlineShoppingCart size={30} className="text-gray-700" />
                             <span className="absolute top-[-12px] right-[-15px] w-5 h-5 rounded-full text-white bg-purple-700 text-xs flex items-center justify-center font-semibold font-titleFont">
-                                0
+                                {productData.length}
                             </span>
                         </Link>
                     </li>
