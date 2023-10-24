@@ -10,6 +10,14 @@ body {
     background-image: url('./assets/hero.png');
 }
 
+.bg-newsletter {
+    background-image: url('./assets/newsletter-banner.png');
+}
+
+.cart-banner {
+    background-image: url('./assets/cart-banner.png');
+}
+
 .container {
     @apply max-w-screen-xl mx-auto px-4 md:px-8
 }
