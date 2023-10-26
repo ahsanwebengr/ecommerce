@@ -8,7 +8,6 @@ import { useSelector } from "react-redux";
 const Header = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const productData = useSelector((state) => state.counter.productData);
-    console.log(productData);
     return (
         <nav className="sticky top-0 left-0 shadow-xl z-40 w-full bg-white">
             <div className="container py-6 flex items-center justify-between">
