@@ -7,16 +7,16 @@ const Cart = () => {
     const productData = useSelector((state) => state.counter.productData);
 
     return (
-        <section >
+        <section>
             <div className="cart-banner min-h-[400px] bg-center bg-cover bg-no-repeat flex items-center justify-center text-center flex-col">
                 <h2 className='text-white capitalize text-3xl md:text-5xl font-bold mb-2.5'>#Cart</h2>
                 <h5 className='text-white text-xl md:text-2xl font-medium tracking-wide'>Daily Happy Shopping</h5>
             </div>
-            <div className="container flex py-10">
-                <div className='w-3/5'>
+            <div className="container flex flex-col gap-5 lg:flex-row py-10">
+                <div className='w-full lg:w-3/5'>
                     <CartItem />
                 </div>
-                <div className="w-2/5 bg-gray-100 py-6 px-4">
+                <div className="w-full lg:w-2/5 bg-gray-100 py-6 px-4">
                     <div className=''>
                         <h2 className='text-xl md:text-3xl font-medium text-gray-800 mb-3'>Cart Totals</h2>
                         <p className='text-basel md:text-lg text-gray-600 mb-4 flex gap-5'>Subtotal <span className='font-bold tracking-wide text-black'>$ 200</span></p>

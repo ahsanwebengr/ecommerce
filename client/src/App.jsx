@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import Header from './components/Header';
-import Home from './pages/Home';
-import Cart from './pages/Cart';
-import NotFound from './pages/NotFound';
-import About from './pages/About';
-import Contact from './pages/Contact';
 import Footer from './components/Footer';
-import { createBrowserRouter, RouterProvider, Outlet, ScrollRestoration } from 'react-router-dom';
 import productData from './api/Api';
-import SingleProduct from './components/SingleProduct';
+import { createBrowserRouter, RouterProvider, Outlet, ScrollRestoration } from 'react-router-dom';
 
+const Home = lazy(() => import('./pages/Home'));
+const Cart = lazy(() => import('./pages/Cart'));
+const NotFound = lazy(() => import('./pages/NotFound'));
+const About = lazy(() => import('./pages/About'));
+const Contact = lazy(() => import('./pages/Contact'));
+const SingleProduct = lazy(() => import('./components/SingleProduct'));
+const Shop = lazy(() => import('./pages/Shop'));
+const Blog = lazy(() => import('./pages/Blog'));
 
 const Layout = () => {
   return (
@@ -29,31 +31,71 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Home />
+          </Suspense>
+        ),
         loader: productData
       },
       {
         path: '/about',
-        element: <About />
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <About />
+          </Suspense>
+        ),
+      },
+      {
+        path: '/shop',
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Shop />
+          </Suspense>
+        ),
+      },
+      {
+        path: '/blog',
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Blog />
+          </Suspense>
+        ),
       },
       {
         path: '/product/:id',
-        element: <SingleProduct />
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <SingleProduct />
+          </Suspense>
+        ),
       },
       {
         path: '/cart',
-        element: <Cart />
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Cart />
+          </Suspense>
+        ),
       },
       {
         path: '/contact',
-        element: <Contact />
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Contact />
+          </Suspense>
+        ),
       },
       {
         path: '*',
-        element: <NotFound />
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <NotFound />
+          </Suspense>
+        ),
       },
-    ]
-  }
+    ],
+  },
 ]);
 
 const App = () => {

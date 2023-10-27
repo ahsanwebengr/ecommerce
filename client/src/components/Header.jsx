@@ -22,10 +22,10 @@ const Header = () => {
                         <NavLink to={'/about'} className="text-xl font-semibold text-gray-700 transition-all duration-150 hover:text-purple-700 hover:underline underline-offset-4 ">About</NavLink>
                     </li>
                     <li className="nav-items">
-                        <a href="./shop.html" className="text-xl font-semibold text-gray-700 transition-all duration-150 hover:text-purple-700 hover:underline underline-offset-4">Shop</a>
+                        <NavLink to={'/shop'} className="text-xl font-semibold text-gray-700 transition-all duration-150 hover:text-purple-700 hover:underline underline-offset-4">Shop</NavLink>
                     </li>
                     <li className="nav-items">
-                        <a href="./blog.html" className="text-xl font-semibold text-gray-700 transition-all duration-150 hover:text-purple-700 hover:underline underline-offset-4">Blog</a>
+                        <NavLink to={'/blog'} className="text-xl font-semibold text-gray-700 transition-all duration-150 hover:text-purple-700 hover:underline underline-offset-4">Blog</NavLink>
                     </li>
                     <li className="nav-items">
                         <NavLink to={'/contact'} className="text-xl font-semibold text-gray-700 transition-all duration-150 hover:text-purple-700 hover:underline underline-offset-4">Contact</NavLink>
@@ -43,7 +43,7 @@ const Header = () => {
                     <Link to={'/cart'} className="relative md:hidden">
                         <HiOutlineShoppingCart size={30} className="" />
                         <span className="absolute top-[-12px] right-[-15px] w-5 h-5 rounded-full text-white bg-purple-700 text-xs flex items-center justify-center font-semibold font-titleFont">
-                            0
+                            {productData.length}
                         </span>
                     </Link>
                     <span className="text-gray-700" onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
