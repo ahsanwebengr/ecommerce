@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import productData from './api/Api';
 import { createBrowserRouter, RouterProvider, Outlet, ScrollRestoration } from 'react-router-dom';
+import Loader from './components/Loader';
 
 const Home = lazy(() => import('./pages/Home'));
 const Cart = lazy(() => import('./pages/Cart'));
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<Loader />}>
             <Home />
           </Suspense>
         ),
@@ -41,7 +42,7 @@ const router = createBrowserRouter([
       {
         path: '/about',
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<Loader />}>
             <About />
           </Suspense>
         ),
@@ -49,7 +50,7 @@ const router = createBrowserRouter([
       {
         path: '/shop',
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<Loader />}>
             <Shop />
           </Suspense>
         ),
@@ -57,7 +58,7 @@ const router = createBrowserRouter([
       {
         path: '/blog',
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<Loader />}>
             <Blog />
           </Suspense>
         ),
@@ -65,7 +66,7 @@ const router = createBrowserRouter([
       {
         path: '/product/:id',
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<Loader />}>
             <SingleProduct />
           </Suspense>
         ),
@@ -73,7 +74,7 @@ const router = createBrowserRouter([
       {
         path: '/cart',
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<Loader />}>
             <Cart />
           </Suspense>
         ),
@@ -81,7 +82,7 @@ const router = createBrowserRouter([
       {
         path: '/contact',
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<Loader />}>
             <Contact />
           </Suspense>
         ),
@@ -89,7 +90,7 @@ const router = createBrowserRouter([
       {
         path: '*',
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<Loader />}>
             <NotFound />
           </Suspense>
         ),

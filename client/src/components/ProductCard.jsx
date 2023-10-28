@@ -4,6 +4,7 @@ import { FaShoppingCart } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { addToCart } from '../redux/counterSlice';
+import { ToastContainer, toast } from 'react-toastify';
 
 const ProductCard = ({ product }) => {
     const dispatch = useDispatch();
@@ -66,8 +67,23 @@ const ProductCard = ({ product }) => {
                     price: product.price,
                     quantity: 1,
                     description: product.description
-                }))} className='text-2xl w-12 h-12 rounded-full bg-purple-100 text-purple-700 grid place-items-center hover:bg-purple-700 hover:text-white transition-all duration-200'> <FaShoppingCart /> </button>
+                }))
+                    && toast.success(`${product.title} added successfully`)
+
+                } className='text-2xl w-12 h-12 rounded-full bg-purple-100 text-purple-700 grid place-items-center hover:bg-purple-700 hover:text-white transition-all duration-200'> <FaShoppingCart /> </button>
             </div>
+            <ToastContainer
+                position="top-left"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"
+            />
         </article >
     );
 };

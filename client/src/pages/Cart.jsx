@@ -12,7 +12,7 @@ const Cart = () => {
                 <h2 className='text-white capitalize text-3xl md:text-5xl font-bold mb-2.5'>#Cart</h2>
                 <h5 className='text-white text-xl md:text-2xl font-medium tracking-wide'>Daily Happy Shopping</h5>
             </div>
-            <div className="container flex flex-col gap-5 lg:flex-row py-10">
+            <div className="container flex flex-col gap-4 lg:flex-row py-10">
                 <div className='w-full lg:w-3/5'>
                     <CartItem />
                 </div>
