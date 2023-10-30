@@ -4,10 +4,13 @@ import { useSelector } from 'react-redux';
 import CartItem from '../components/CartItem';
 import { HiOutlineArrowLeft } from 'react-icons/hi';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Cart = () => {
     const [totalAmount, setTotalAmount] = useState('');
+    const [payNow, setPayNow] = useState(false);
     const productData = useSelector((state) => state.counter.productData);
+    const userInfo = useSelector((state) => state.counter.userInfo);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -18,6 +21,10 @@ const Cart = () => {
         });
         setTotalAmount(price.toFixed(2));
     }, [productData]);
+
+    const handleCheckout = () => {
+        userInfo ? setPayNow(true) : toast.error('Please login to checkout!');
+    };
 
     return (
         <section>
@@ -55,7 +62,7 @@ const Cart = () => {
                                     <dd className="text-base md:text-lg font-medium text-gray-900">$ {totalAmount}</dd>
                                 </div>
                             </dl>
-                            <button className='text-white bg-black block w-full h-12 text-base md:text-lg font-medium rounded-sm mt-5 hover:opacity-90'>Proceed to Checkout</button>
+                            <button onClick={handleCheckout} className='text-white bg-black block w-full h-12 text-base md:text-lg font-medium rounded-sm mt-5 hover:opacity-90'>Proceed to Checkout</button>
                             <p className="px-2 pb-4 font-medium text-green-700 mt-4">You can save on this order using Redeem Codes</p>
                         </div>
                     </div>
@@ -71,6 +78,18 @@ const Cart = () => {
                     </div>
             }
             <NewsLetter />
+            <ToastContainer
+                position="top-left"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"
+            />
         </section>
     );
 };

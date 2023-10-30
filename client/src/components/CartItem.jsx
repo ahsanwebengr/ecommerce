@@ -104,7 +104,7 @@ const CartItem = () => {
                 pauseOnHover
                 theme="dark"
             />
-        </article >
+        </article>
     );
 };
 

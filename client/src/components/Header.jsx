@@ -41,7 +41,7 @@ const Header = () => {
                     </li>
                     <li className="nav-items hidden md:block">
                         <Link className="flex gap-2 items-center" to={'/login'}>
-                            <img src={userAvatar} alt="user0image" className="w-10 h-10 rounded-full border" />
+                            <img src={userInfo ? userInfo.image : userAvatar} alt="user0image" className="w-10 h-10 rounded-full border" />
                             {userInfo && <p className=''>{userInfo.name}</p>}
                         </Link>
                     </li>

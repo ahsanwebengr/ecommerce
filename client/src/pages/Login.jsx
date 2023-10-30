@@ -4,7 +4,7 @@ import { googleLogo, githubLogo } from '../assets';
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { addUser } from '../redux/counterSlice';
+import { addUser, removeUser } from '../redux/counterSlice';
 
 const Login = () => {
     const dispatch = useDispatch();
@@ -35,6 +35,7 @@ const Login = () => {
 
     const handleSignOut = () => {
         signOut(auth).then(() => {
+            dispatch(removeUser());
             toast.success('Sign out Successfully');
 
         }).catch((error) => {
