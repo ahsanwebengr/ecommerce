@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 const Header = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const productData = useSelector((state) => state.counter.productData);
+    const userInfo = useSelector((state) => state.counter.userInfo);
     return (
         <nav className="sticky top-0 left-0 shadow-xl z-40 w-full bg-white">
             <div className="container py-6 flex items-center justify-between">
@@ -38,6 +39,12 @@ const Header = () => {
                             </span>
                         </Link>
                     </li>
+                    <li className="nav-items hidden md:block">
+                        <Link className="flex gap-2 items-center" to={'/login'}>
+                            <img src={userAvatar} alt="user0image" className="w-10 h-10 rounded-full border" />
+                            {userInfo && <p className=''>{userInfo.name}</p>}
+                        </Link>
+                    </li>
                 </ul>
                 <div className="flex md:hidden gap-4 items-center">
                     <Link to={'/cart'} className="relative md:hidden">
@@ -46,10 +53,12 @@ const Header = () => {
                             {productData.length}
                         </span>
                     </Link>
+                    <Link to={'/login'} className="md:hidden">
+                        <img src={userAvatar} alt="user0image" className="w-10 h-10 rounded-full border" />
+                    </Link>
                     <span className="text-gray-700" onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
                         {isSidebarOpen ? <AiOutlineClose size={30} /> : <HiOutlineMenuAlt1 size={30} />}
                     </span>
-
                 </div>
             </div>
         </nav>

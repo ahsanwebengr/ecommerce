@@ -1,6 +1,6 @@
 const NewsLetter = () => {
     return (
-        <section className='bg-newsletter bg-blue-950 min-h-[400px] flex items-center'>
+        <section className='bg-newsletter bg-gray-900 min-h-[400px] flex items-center'>
             <div className="container">
                 <div className="grid grid-cols-1 items-center lg:grid-cols-2 gap-4">
                     <div className="text-white">

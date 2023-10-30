@@ -1,7 +1,8 @@
 import React from 'react';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { HiOutlineArrowLeft } from 'react-icons/hi';
-import { MdOutlineClose } from 'react-icons/md';
+import { BiTrashAlt } from 'react-icons/bi';
+// import { MdOutlineClose } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
@@ -10,63 +11,81 @@ import { incrementQuantity, decrementQuantity, deleteItem, resetCart } from '../
 const CartItem = () => {
     const productData = useSelector((state) => state.counter.productData);
     const dispatch = useDispatch();
-    console.log(productData);
+    console.log(productData, 'CartItem');
     return (
         <article className="">
             <div className="w-full">
                 <h2 className="font-titleFont text-xl md:text-4xl font-bold capitalize">shopping cart</h2>
-                <div>
-                    {productData?.map((item) => (
-                        <div key={item?._id}>
-                            <div className="flex items-center flex-wrap justify-between gap-2.5 mt-6">
-                                <div className="flex items-center gap-2">
-                                    <span className=''>
-                                        <MdOutlineClose onClick={() => dispatch(deleteItem(item._id)) & toast.error(`${item.title} is removed`)} className="text-2xl text-black hover:text-red-600 cursor-pointer duration-300" />
-                                    </span>
-                                    <img className="w-28 h-28 object-cover" src={item?.image} alt="productImg" />
+                <ul role="list" className="divide-y divide-gray-200 mt-3">
+                    {productData.map((product) => (
+                        <div key={product._id} className="">
+                            <li className="flex py-6 sm:py-6 ">
+                                <div className="flex-shrink-0">
+                                    <img
+                                        src={product.image}
+                                        alt={product.title}
+                                        className="sm:h-38 sm:w-38 h-20 w-24 rounded-md object-contain object-center"
+                                    />
                                 </div>
-                                <h2 className="w-52">{item.title}</h2>
-                                <p className="w-10">${item.price}</p>
-                                <div className="w-52 flex items-center justify-between text-gray-500 gap-4 border p-3">
-                                    <p className="text-sm">Quantity</p>
-                                    <div className="flex items-center gap-4 text-sm font-semibold">
-                                        <button className='border p-2 hover:bg-gray-700 hover:text-white active:bg-black duration-150' onClick={() =>
-                                            dispatch(
-                                                decrementQuantity({
-                                                    _id: item._id,
-                                                    title: item.title,
-                                                    image: item.image,
-                                                    price: item.price,
-                                                    quantity: 1,
-                                                    description: item.description,
-                                                })
-                                            )
-                                        }> <AiOutlineMinus /> </button>
-                                        {item.quantity}
-                                        <button className='border p-2 hover:bg-gray-700 hover:text-white active:bg-black duration-150'
-                                            onClick={() =>
-                                                dispatch(
-                                                    incrementQuantity({
-                                                        _id: item._id,
-                                                        title: item.title,
-                                                        image: item.image,
-                                                        price: item.price,
-                                                        quantity: 1,
-                                                        description: item.description,
-                                                    })
-                                                )
-                                            } > <AiOutlinePlus /> </button>
+                                <div className="ml-4 flex flex-1 flex-col justify-between sm:ml-6">
+                                    <div className="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
+                                        <div>
+                                            <div className="flex justify-between">
+                                                <h3 className="text-lg md:text-2xl font-semibold">{product.title} </h3>
+                                            </div>
+
+                                            <div className="mt-1 flex  items-center gap-4">
+                                                <p className="text-lg md:text-xl font-medium text-gray-800">
+                                                    ${product.price}
+                                                </p>
+                                                <p className="text-lg md:text-xl font-medium text-green-500">5% Off</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <p className="w-14">${item.quantity * item.price}</p>
+                            </li>
+                            <div className="mb-2 flex">
+                                <div className="min-w-24 flex items-center">
+                                    <button onClick={() =>
+                                        dispatch(
+                                            decrementQuantity({
+                                                _id: product._id,
+                                                title: product.title,
+                                                image: product.image,
+                                                price: product.price,
+                                                quantity: 1,
+                                                description: product.description,
+                                            })
+                                        )
+                                    } type="button" className="w-6 hover:bg-black hover:text-white p-1"> <AiOutlineMinus /> </button>
+                                    <p className="mx-1 h-7 w-10 text-base rounded-md border text-center">{product.quantity}</p>
+                                    <button onClick={() =>
+                                        dispatch(
+                                            incrementQuantity({
+                                                _id: product._id,
+                                                title: product.title,
+                                                image: product.image,
+                                                price: product.price,
+                                                quantity: 1,
+                                                description: product.description,
+                                            })
+                                        )
+                                    } type="button" className="flex w-6 items-center justify-center hover:bg-black hover:text-white p-1"> <AiOutlinePlus /> </button>
+                                </div>
+                                <div className="ml-6 flex text-sm">
+                                    <button type="button" onClick={() => dispatch(deleteItem(product._id)) & toast.error(`${product.title} is removed`)} className="flex items-center justify-center space-x-1 px-3 py-1  rounded-md hover:bg-red-100">
+                                        <BiTrashAlt size={22} className="text-red-500" />
+                                        <span className="text-lg font-medium text-red-500">Remove</span>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     ))}
-                    <button onClick={() => dispatch(resetCart()) & toast.error("Your Cart is Empty!")} className="bg-red-500 text-white mt-8 ml-7 py-1 px-6 hover:bg-red-800 duration-300">Reset Cart</button>
-                </div>
+                </ul>
+                <button onClick={() => dispatch(resetCart()) & toast.error("Your Cart is Empty!")} className="bg-orange-600 rounded-sm text-base md:text-lg text-white mt-8  py-1 px-6 hover:bg-orange-800 duration-300">Reset Cart</button>
             </div>
             <Link to="/">
-                <button className="mt-8 ml-7 flex items-center gap-1 text-gray-400 hover:text-black duration-300">
+                <button className="mt-8 flex items-center gap-1 text-gray-400 hover:text-black hover:underline underline-offset-2 decoration-gray-400 duration-300">
                     <span>
                         <HiOutlineArrowLeft />
                     </span>
@@ -85,7 +104,7 @@ const CartItem = () => {
                 pauseOnHover
                 theme="dark"
             />
-        </article>
+        </article >
     );
 };
 

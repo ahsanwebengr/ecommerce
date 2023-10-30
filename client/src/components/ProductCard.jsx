@@ -2,7 +2,7 @@ import React from 'react';
 import { AiFillStar } from 'react-icons/ai';
 import { FaShoppingCart } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { addToCart } from '../redux/counterSlice';
 import { ToastContainer, toast } from 'react-toastify';
 
