@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 body {
-    @apply overflow-x-hidden
+    @apply overflow-x-hidden font-bodyFont
+
 }
 
 .bg-hero-image {

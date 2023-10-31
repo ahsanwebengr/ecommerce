@@ -34,7 +34,7 @@ const Header = () => {
                     <li className="nav-items relative hidden md:block">
                         <Link to={'cart'}>
                             <HiOutlineShoppingCart size={30} className="text-gray-700" />
-                            <span className="absolute top-[-12px] right-[-15px] w-5 h-5 rounded-full text-white bg-purple-700 text-xs flex items-center justify-center font-semibold font-titleFont">
+                            <span className="absolute top-[-12px] right-[-15px] w-5 h-5 rounded-full text-white bg-purple-700 shadow-md text-xs flex items-center justify-center font-semibold font-titleFont">
                                 {productData.length}
                             </span>
                         </Link>
@@ -42,14 +42,14 @@ const Header = () => {
                     <li className="nav-items hidden md:block">
                         <Link className="flex gap-2 items-center" to={'/login'}>
                             <img src={userInfo ? userInfo.image : userAvatar} alt="user0image" className="w-10 h-10 rounded-full border" />
-                            {userInfo && <p className=''>{userInfo.name}</p>}
+                            {userInfo && <p className='underline underline-offset-2 decoration-gray-600'>{userInfo?.name.split(' ')[0]}</p>}
                         </Link>
                     </li>
                 </ul>
                 <div className="flex md:hidden gap-4 items-center">
                     <Link to={'/cart'} className="relative md:hidden">
                         <HiOutlineShoppingCart size={30} className="" />
-                        <span className="absolute top-[-12px] right-[-15px] w-5 h-5 rounded-full text-white bg-purple-700 text-xs flex items-center justify-center font-semibold font-titleFont">
+                        <span className="absolute top-[-12px] right-[-15px] w-5 h-5 rounded-full text-white bg-purple-700 shadow-md text-xs flex items-center justify-center font-semibold font-titleFont">
                             {productData.length}
                         </span>
                     </Link>

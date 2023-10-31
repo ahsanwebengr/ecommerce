@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { AiFillStar, AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { addToCart } from '../redux/counterSlice';
 import { useDispatch } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
@@ -10,10 +10,23 @@ const SingleProduct = () => {
     const [details, setDetails] = useState({});
     const [baseQuantity, setBaseQuantity] = useState(1);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     useEffect(() => {
         setDetails(location.state.item);
     }, []);
+
+    const handleCart = () => {
+        dispatch(addToCart({
+            _id: details._id,
+            title: details.title,
+            image: details.image,
+            price: details.price,
+            quantity: baseQuantity,
+            description: details.description
+        })) && toast.success(`${details.title} added to cart`);
+        navigate('/cart');
+    };
 
     return (
         <section className='py-10'>
@@ -27,9 +40,9 @@ const SingleProduct = () => {
                     <h2 className='text-2xl md:text-4xl font-bold capitalize my-3.5 text-gray-700 tracking-wide'>{details?.title}</h2>
                     <div className="flex gap-2 items-center">
                         <h5 className='line-through text-gray-400 text-lg md:text-xl tracking-wide'>${details?.oldPrice}</h5>
-                        <h5 className='font-bold text-gray-800 text-xl md:text-3xl tracking-wide'>${details?.price}</h5>
+                        <h5 className='font-bold text-green-600 text-xl md:text-3xl tracking-wide'>${details?.price}</h5>
                     </div>
-                    <div className='flex gap-1 md:gap-3 items-center text-gray-800 text-xl md:text-2xl my-8'>
+                    <div className='flex gap-1 md:gap-3 items-center text-yellow-400 text-xl md:text-2xl my-8'>
                         <AiFillStar />
                         <AiFillStar />
                         <AiFillStar />
@@ -47,15 +60,7 @@ const SingleProduct = () => {
                                 <button className='border p-2 hover:bg-gray-700 hover:text-white active:bg-black duration-150' onClick={() => setBaseQuantity(baseQuantity + 1)}> <AiOutlinePlus /> </button>
                             </div>
                         </div>
-                        <button onClick={() => dispatch(addToCart({
-                            _id: details._id,
-                            title: details.title,
-                            image: details.image,
-                            price: details.price,
-                            quantity: baseQuantity,
-                            description: details.description
-                        })) && toast.success(`${details.title} added to cart`)
-                        } className='text-white bg-black px-6 py-3.5 h-full active:bg-gray-800 rounded-sm text-base font-semibold '>Add to Cart</button>
+                        <button onClick={handleCart} className='text-white bg-black px-6 py-3.5 h-full active:bg-gray-800 rounded-sm text-base font-semibold '>Add to Cart</button>
                     </div>
                     <p className='text-lg text-gray-500'>Category : <span className='capitalize font-medium'>{details.category}</span></p>
                 </div>

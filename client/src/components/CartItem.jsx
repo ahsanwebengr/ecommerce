@@ -11,7 +11,6 @@ import { incrementQuantity, decrementQuantity, deleteItem, resetCart } from '../
 const CartItem = () => {
     const productData = useSelector((state) => state.counter.productData);
     const dispatch = useDispatch();
-    console.log(productData, 'CartItem');
     return (
         <article className="">
             <div className="w-full">
