@@ -11,7 +11,7 @@ const Footer = () => {
                     <div className="footer-1">
                         <img src={brandLogo} alt="Logo" className="mb-5 w-18" />
                         <ul className="flex flex-col gap-3 text-gray-700 text-base md:text-xl">
-                            <li className="text-gray-600"><b className="text-black">Address :</b> Okara , Pakistan</li>
+                            <li className="text-gray-600"><b className="text-black">Address :</b> Lahore , Pakistan</li>
                             <li className="text-gray-600"><b className="text-black">Phone :</b> +92 - 3074961 - 938</li>
                             <li className="text-gray-600"><b className="text-black">Hours :</b>10.00 - 18. 00</li>
                         </ul>
@@ -43,7 +43,7 @@ const Footer = () => {
                     <div className="footer-3">
                         <h4 className="text-xl md:text-3xl font-bold text-gray-800 mb-3">My Accounts</h4>
                         <ul className="flex flex-col gap-3">
-                            <li><a className="hover:text-black hover:underline text-gray-600 text-base md:text-xl font-medium" href="">Sign in</a></li>
+                            <li><Link className="hover:text-black hover:underline text-gray-600 text-base md:text-xl font-medium" to={'/login'}>Sign in</Link></li>
                             <li><Link className="hover:text-black hover:underline text-gray-600 text-base md:text-xl font-medium" to={'/cart'}>View Cart</Link></li>
                             <li><a className="hover:text-black hover:underline text-gray-600 text-base md:text-xl font-medium" href="">My Wishlist </a></li>
                             <li><a className="hover:text-black hover:underline text-gray-600 text-base md:text-xl font-medium" href="">Track my Order </a></li>
