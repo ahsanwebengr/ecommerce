@@ -4,7 +4,6 @@
 
 body {
     @apply overflow-x-hidden font-bodyFont
-
 }
 
 .bg-hero-image {
@@ -17,6 +16,14 @@ body {
 
 .cart-banner {
     background-image: url('./assets/cart-banner.png');
+}
+
+.shop-banner {
+    background-image: url('./assets/shop-banner.jpg');
+}
+
+.blog-banner {
+    background-image: url('./assets/blog-banner.jpg');
 }
 
 

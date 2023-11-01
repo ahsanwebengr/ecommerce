@@ -5,6 +5,7 @@ import CartItem from '../components/CartItem';
 import { HiOutlineArrowLeft } from 'react-icons/hi';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
+import SectionBanner from '../components/SectionBanner';
 
 const Cart = () => {
     const [totalAmount, setTotalAmount] = useState('');
@@ -28,12 +29,9 @@ const Cart = () => {
 
     return (
         <section>
-            <div className="cart-banner min-h-[400px] bg-center bg-cover bg-no-repeat flex items-center justify-center text-center flex-col">
-                <h2 className='text-white capitalize text-3xl md:text-5xl font-bold mb-2.5'>#Cart</h2>
-                <h5 className='text-white text-xl md:text-2xl font-medium tracking-wide'>Daily Happy Shopping</h5>
-            </div>
+            <SectionBanner heading={'#Cart'} subHeading={'Daily Happy Shopping'} bgImg={'cart-banner'} />
             {
-                productData.length > 0 ? <div className="container flex flex-col gap-4 lg:flex-row py-10">
+                productData?.length > 0 ? <div className="container flex flex-col gap-4 lg:flex-row py-10">
                     <div className='w-full lg:w-3/5'>
                         <CartItem />
                     </div>

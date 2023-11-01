@@ -17,19 +17,19 @@ const Header = () => {
                 </Link>
                 <ul className={`${isSidebarOpen ? 'right-0' : 'right-[-100%]'} flex flex-col md:flex-row items-center justify-center gap-5 fixed md:static top-[86px]  w-72 md:w-auto h-screen md:h-auto bg-gray-200 shadow-lg md:shadow-none md:bg-transparent transition-all duration-200`}>
                     <li className="nav-items">
-                        <NavLink to={'/'} className="text-xl font-semibold text-gray-700 transition-all duration-150 hover:text-purple-700 hover:underline underline-offset-4 ">Home</NavLink>
+                        <NavLink to={'/'} className="text-xl font-semibold text-gray-700 transition-all duration-150 hover:text-purple-700 hover:border-b-2 border-purple-700 ">Home</NavLink>
                     </li>
                     <li className="nav-items">
-                        <NavLink to={'/about'} className="text-xl font-semibold text-gray-700 transition-all duration-150 hover:text-purple-700 hover:underline underline-offset-4 ">About</NavLink>
+                        <NavLink to={'/about'} className="text-xl font-semibold text-gray-700 transition-all duration-150 hover:text-purple-700 hover:border-b-2 border-purple-700 ">About</NavLink>
                     </li>
                     <li className="nav-items">
-                        <NavLink to={'/shop'} className="text-xl font-semibold text-gray-700 transition-all duration-150 hover:text-purple-700 hover:underline underline-offset-4">Shop</NavLink>
+                        <NavLink to={'/shop'} className="text-xl font-semibold text-gray-700 transition-all duration-150 hover:text-purple-700 hover:border-b-2 border-purple-700">Shop</NavLink>
                     </li>
                     <li className="nav-items">
-                        <NavLink to={'/blog'} className="text-xl font-semibold text-gray-700 transition-all duration-150 hover:text-purple-700 hover:underline underline-offset-4">Blog</NavLink>
+                        <NavLink to={'/blog'} className="text-xl font-semibold text-gray-700 transition-all duration-150 hover:text-purple-700 hover:border-b-2 border-purple-700">Blog</NavLink>
                     </li>
                     <li className="nav-items">
-                        <NavLink to={'/contact'} className="text-xl font-semibold text-gray-700 transition-all duration-150 hover:text-purple-700 hover:underline underline-offset-4">Contact</NavLink>
+                        <NavLink to={'/contact'} className="text-xl font-semibold text-gray-700 transition-all duration-150 hover:text-purple-700 hover:border-b-2 border-purple-700">Contact</NavLink>
                     </li>
                     <li className="nav-items relative hidden md:block">
                         <Link to={'cart'}>
@@ -41,7 +41,7 @@ const Header = () => {
                     </li>
                     <li className="nav-items hidden md:block">
                         <Link className="flex gap-2 items-center" to={'/login'}>
-                            <img src={userInfo ? userInfo.image : userAvatar} alt="user0image" className="w-10 h-10 rounded-full border" />
+                            <img src={userInfo ? userInfo?.image : userAvatar} alt="user0image" className="w-10 h-10 rounded-full border" />
                             {userInfo && <p className='underline underline-offset-2 decoration-gray-600'>{userInfo?.name.split(' ')[0]}</p>}
                         </Link>
                     </li>
@@ -54,7 +54,7 @@ const Header = () => {
                         </span>
                     </Link>
                     <Link to={'/login'} className="md:hidden">
-                        <img src={userAvatar} alt="user0image" className="w-10 h-10 rounded-full border" />
+                        <img src={userInfo ? userInfo?.image : userAvatar} alt="user0image" className="w-10 h-10 rounded-full border" />
                     </Link>
                     <span className="text-gray-700" onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
                         {isSidebarOpen ? <AiOutlineClose size={30} /> : <HiOutlineMenuAlt1 size={30} />}

@@ -50,6 +50,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/shop',
+        loader : productData,
         element: (
           <Suspense fallback={<Loader />}>
             <Shop />
