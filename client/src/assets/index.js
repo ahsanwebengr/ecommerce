@@ -18,8 +18,10 @@ import feature5 from './f5.png';
 import feature6 from './f6.png';
 import NotFoundImg from "./404.gif";
 import AboutImg from './about.png';
+import shopping from './shopping.jpeg';
 
 export {
     logoDark, logoLight, cartImg, paymentLogo, googleLogo, githubLogo, userAvatar, brandLogo, app,
-    play, pay, heroImg, feature1, feature2, feature3, feature4, feature5, feature6, NotFoundImg, AboutImg
+    play, pay, heroImg, feature1, feature2, feature3, feature4, feature5, feature6, NotFoundImg, AboutImg,
+    shopping
 };
