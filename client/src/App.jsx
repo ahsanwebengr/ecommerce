@@ -5,6 +5,7 @@ import productData from './api/Api';
 import { createBrowserRouter, RouterProvider, Outlet, ScrollRestoration } from 'react-router-dom';
 import Loader from './components/Loader';
 import Login from './pages/Login';
+import SignUp from './pages/SignUp';
 
 const Home = lazy(() => import('./pages/Home'));
 const Cart = lazy(() => import('./pages/Cart'));
@@ -50,7 +51,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/shop',
-        loader : productData,
+        loader: productData,
         element: (
           <Suspense fallback={<Loader />}>
             <Shop />
@@ -94,6 +95,14 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<Loader />}>
             <Login />
+          </Suspense>
+        ),
+      },
+      {
+        path: '/signup',
+        element: (
+          <Suspense fallback={<Loader />}>
+            <SignUp />
           </Suspense>
         ),
       },
