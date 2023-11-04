@@ -82,17 +82,20 @@ const Contact = () => {
                                     </div>
 
                                     <div className="mx-0 mb-1 sm:mb-4">
-                                        <label htmlFor="email" className="pb-1 text-xs uppercase tracking-wider"></label>
+                                        <label htmlFor="email" className="pb-1 text-xs uppercase tracking-wider">
+                                            Email Address
+                                        </label>
                                         <input type="email" placeholder="Enter Email Address*"
                                             {...register('email', {
-                                                required: 'Email required', pattern: {
+                                                required: 'Email is required',
+                                                pattern: {
                                                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                                                     message: 'Invalid email address',
                                                 },
                                             })}
-                                            className={`mb-2 w-full rounded-md border ${errors.email ? 'border-red-500' : 'border-gray-400'}  py-2 pl-2 pr-4 shadow-md sm:mb-0 focus:border-purple-400 focus:outline-none focus:border-2`}
+                                            className={`mb-2 w-full rounded-md border ${errors.email ? 'border-red-500' : 'border-gray-400'} py-2 pl-2 pr-4 shadow-md sm:mb-0 focus:border-purple-400 focus:outline-none focus:border-2`}
                                         />
-                                        {errors.email?.type === "required" && (
+                                        {errors.email && (
                                             <small className='text-red-500'>{errors.email.message}</small>
                                         )}
                                     </div>
