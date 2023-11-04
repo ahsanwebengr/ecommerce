@@ -2,7 +2,6 @@ import React from 'react';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { HiOutlineArrowLeft } from 'react-icons/hi';
 import { BiTrashAlt } from 'react-icons/bi';
-// import { MdOutlineClose } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';

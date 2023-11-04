@@ -68,7 +68,7 @@ const Login = () => {
                             </div>
                             <button className='bg-purple-700 text-base md:text-lg text-white w-full rounded-md p-2.5'>Sign in</button>
                         </form>
-                        <span>Or continue with</span>
+                        <span className='my-8'>Or continue with</span>
                     </div>
                     <div className="rounded-r-lg hidden md:block h-full">
                         <img src={shopping} alt="shopping-img" className='w-full h-full rounded-r-lg' />

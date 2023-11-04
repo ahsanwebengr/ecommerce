@@ -6,6 +6,7 @@ import { HiOutlineArrowLeft } from 'react-icons/hi';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import SectionBanner from '../components/SectionBanner';
+import StripeCheckout from 'react-stripe-checkout';
 
 const Cart = () => {
     const [totalAmount, setTotalAmount] = useState('');
@@ -25,6 +26,13 @@ const Cart = () => {
 
     const handleCheckout = () => {
         userInfo ? setPayNow(true) : toast.error('Please login to checkout!');
+    };
+
+    const payment = async (token) => {
+        await axios.post('http://localhost:8000/pay', {
+            amount: totalAmount * 100,
+            token: token
+        });
     };
 
     return (
@@ -63,6 +71,21 @@ const Cart = () => {
                             <button onClick={handleCheckout} className='text-white bg-black block w-full h-12 text-base md:text-lg font-medium rounded-sm mt-5 hover:opacity-90'>Proceed to Checkout</button>
                             <p className="px-2 pb-4 font-medium text-green-700 mt-4">You can save on this order using Redeem Codes</p>
                         </div>
+                        {payNow && <div className="text-center">
+                            <StripeCheckout
+                                name="Amazon Pro"
+                                label='Pay to Amazon Pro'
+                                description={`Your payment amount is ${totalAmount}`}
+                                ComponentClass="div"
+                                amount={`${totalAmount * 100}`}
+                                currency="USD"
+                                stripeKey="pk_test_51O7uqSGK1VxuPahpiMhyYc4AF4VFklFv7ymufMIKNBHXsoggQ4iXMJ6dHpq0QZPawxyw7Q4z4U7PGA6vraLCodpE00rNNOM07l"
+                                email={`${userInfo.email}`}
+                                // token={payment}
+                                reconfigureOnUpdate={false}
+                            >
+                            </StripeCheckout>
+                        </div>}
                     </div>
                 </div> :
                     <div className="container flex flex-col justify-center items-center text-center py-10">
