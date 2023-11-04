@@ -71,7 +71,6 @@ const Contact = () => {
                                 <div className="mx-0 mb-1 sm:mb-4">
 
                                     <div className="mx-0 mb-1 sm:mb-4">
-                                        <label htmlFor="name" className="pb-1 text-xs uppercase tracking-wider"></label>
                                         <input type="text" placeholder="Enter Name*"
                                             {...register('name', { required: 'Name required', })}
                                             className={`mb-2 w-full rounded-md border ${errors.name ? 'border-red-500' : 'border-gray-400'}  py-2 pl-2 pr-4 shadow-md sm:mb-0 focus:border-purple-400 focus:outline-none focus:border-2`}
@@ -82,9 +81,6 @@ const Contact = () => {
                                     </div>
 
                                     <div className="mx-0 mb-1 sm:mb-4">
-                                        <label htmlFor="email" className="pb-1 text-xs uppercase tracking-wider">
-                                            Email Address
-                                        </label>
                                         <input type="email" placeholder="Enter Email Address*"
                                             {...register('email', {
                                                 required: 'Email is required',
@@ -100,7 +96,6 @@ const Contact = () => {
                                         )}
                                     </div>
                                     <div className="mx-0 mb-1 sm:mb-4">
-                                        <label htmlFor="subject" className="pb-1 text-xs uppercase tracking-wider"></label>
                                         <input type="text" placeholder="Enter Subject*"
                                             {...register('subject', { required: 'Subject required', })} className={`mb-2 w-full rounded-md border ${errors.subject ? 'border-red-500' : 'border-gray-400'}  py-2 pl-2 pr-4 shadow-md sm:mb-0 focus:border-purple-400 focus:outline-none focus:border-2`} />
                                         {errors.subject?.type === "required" && (
@@ -109,7 +104,6 @@ const Contact = () => {
                                     </div>
                                 </div>
                                 <div className="mx-0 mb-1 sm:mb-4">
-                                    <label htmlFor="textarea" className="pb-1 text-xs uppercase tracking-wider"></label>
                                     <textarea cols="30" rows="5" placeholder="Write your message..." className="mb-2 w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md sm:mb-0 focus:border-purple-400 focus:outline-none focus:border-2"></textarea>
                                 </div>
                             </div>

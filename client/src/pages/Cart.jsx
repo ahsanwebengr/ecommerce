@@ -29,7 +29,7 @@ const Cart = () => {
     };
 
     const payment = async (token) => {
-        await axios.post('http://localhost:8000/pay', {
+        await axios.post('http://localhost:3000/pay', {
             amount: totalAmount * 100,
             token: token
         });
@@ -76,12 +76,11 @@ const Cart = () => {
                                 name="Amazon Pro"
                                 label='Pay to Amazon Pro'
                                 description={`Your payment amount is ${totalAmount}`}
-                                ComponentClass="div"
                                 amount={`${totalAmount * 100}`}
                                 currency="USD"
-                                stripeKey="pk_test_51O7uqSGK1VxuPahpiMhyYc4AF4VFklFv7ymufMIKNBHXsoggQ4iXMJ6dHpq0QZPawxyw7Q4z4U7PGA6vraLCodpE00rNNOM07l"
+                                stripeKey="pk_test_51O7uqSGK1VxuPahpbuSuWbp5hsQq0vwCerCTplRuL0nrteegpvQDclrOofCSFNfB4G2ns9nhmr2lY7syeOtk1HVd00DickofQF"
                                 email={`${userInfo.email}`}
-                                // token={payment}
+                                token={payment}
                                 reconfigureOnUpdate={false}
                             >
                             </StripeCheckout>

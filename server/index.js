@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8000;
 
 
 app.get('/', (req, res) => {
@@ -17,13 +17,18 @@ app.get('/', (req, res) => {
 });
 
 app.post('/pay', async (req, res) => {
-    console.log(req.body.token);
-    await Stripe.charges.create({
-        source: req.body.token.id,
-        amount: req.body.amount,
-        currency: 'USD',
-    });
+    try {
+        const charge = await Stripe.charges.create({
+            source: req.body.token.id,
+            amount: req.body.amount,
+            currency: 'usd',
+        });
+        res.json({ message: 'Payment successful', charge });
+    } catch (error) {
+        res.status(500).json({ error: 'Payment failed', message: error.message });
+    }
 });
+
 
 app.listen(port, () => {
     console.log(`Server listening on port : ${port}`);
