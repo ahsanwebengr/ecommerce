@@ -35,7 +35,7 @@ const Footer = () => {
                         <ul className="flex flex-col gap-3">
                             <li><Link className="hover:text-black hover:underline text-gray-600 text-base md:text-xl font-medium" to={'/about'}>About Us</Link></li>
                             <li><a className="hover:text-black hover:underline text-gray-600 text-base md:text-xl font-medium" href="">Delivery Information</a></li>
-                            <li><a className="hover:text-black hover:underline text-gray-600 text-base md:text-xl font-medium" href="">Privacy & Policy </a></li>
+                            <li><Link className="hover:text-black hover:underline text-gray-600 text-base md:text-xl font-medium" to={'/privacy-policy'}>Privacy & Policy </Link></li>
                             <li><a className="hover:text-black hover:underline text-gray-600 text-base md:text-xl font-medium" href="">Terms & Conditions </a></li>
                             <li><Link className="hover:text-black hover:underline text-gray-600 text-base md:text-xl font-medium" to={'/contact'}>Contact Us</Link></li>
                         </ul>

@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider, Outlet, ScrollRestoration } from '
 import Loader from './components/Loader';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 const Home = lazy(() => import('./pages/Home'));
 const Cart = lazy(() => import('./pages/Cart'));
@@ -87,6 +88,14 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<Loader />}>
             <Contact />
+          </Suspense>
+        ),
+      },
+      {
+        path: '/privacy-policy',
+        element: (
+          <Suspense fallback={<Loader />}>
+            <PrivacyPolicy />
           </Suspense>
         ),
       },
