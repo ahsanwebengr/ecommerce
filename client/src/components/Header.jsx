@@ -1,14 +1,37 @@
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { brandLogo, userAvatar } from "../assets/index";
 import { HiOutlineMenuAlt1, HiOutlineShoppingCart } from 'react-icons/hi';
 import { AiOutlineClose } from 'react-icons/ai';
-import { useSelector } from "react-redux";
+import { FaUserAlt } from 'react-icons/fa';
+import { IoExitOutline } from 'react-icons/io5';
+import { useDispatch, useSelector } from "react-redux";
+import { removeUser } from "../redux/counterSlice";
+import { ToastContainer, toast } from "react-toastify";
+import { getAuth, signOut } from "firebase/auth";
 
 const Header = () => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const auth = getAuth();
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const [toggleDropdown, setToggleDropdown] = useState(false);
     const productData = useSelector((state) => state.counter.productData);
     const userInfo = useSelector((state) => state.counter.userInfo);
+
+    const handleSignOut = () => {
+        signOut(auth).then(() => {
+
+            dispatch(removeUser());
+            navigate('/login');
+            toast.success('Sign out Successfully');
+
+        }).catch((error) => {
+            toast.error('Sign out Error: ' + error);
+        });
+    };
+
+
     return (
         <nav className="sticky top-0 left-0 shadow-xl z-40 w-full bg-white">
             <div className="container py-6 flex items-center justify-between">
@@ -39,11 +62,19 @@ const Header = () => {
                             </span>
                         </Link>
                     </li>
-                    <li className="nav-items hidden md:block">
-                        <Link className="flex gap-2 items-center" to={'/login'}>
-                            <img src={userInfo ? userInfo?.image : userAvatar} alt="user0image" className="w-10 h-10 rounded-full border" />
-                            {userInfo && <p className='underline underline-offset-2 decoration-gray-600'>{userInfo?.name.split(' ')[0]}</p>}
-                        </Link>
+                    <li className="nav-items hidden md:block relative" onClick={() => setToggleDropdown(!toggleDropdown)}>
+                        <div className="flex gap-2 items-center">
+                            <img src={userInfo ? userInfo?.image : userAvatar} alt="user-image" className="w-10 h-10 rounded-full border" />
+                        </div>
+                        {userInfo && <ul className={`${toggleDropdown ? "" : 'hidden'} bg-white shadow w-40 absolute left-[-120px] p-1.5 rounded-md z-10`} >
+                            <li className="p-2 border-b flex items-center gap-2 cursor-pointer">
+                                <FaUserAlt />
+                                <p className='decoration-gray-600'>{userInfo?.name.split(' ')[0]}</p>
+                            </li>
+                            <li className="p-2 flex items-center gap-2 cursor-pointer" onClick={handleSignOut}>
+                                <IoExitOutline size={24} />
+                                <span>Logout</span></li>
+                        </ul>}
                     </li>
                 </ul>
                 <div className="flex md:hidden gap-4 items-center">
@@ -61,6 +92,18 @@ const Header = () => {
                     </span>
                 </div>
             </div>
+            <ToastContainer
+                position="top-left"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"
+            />
         </nav>
     );
 };

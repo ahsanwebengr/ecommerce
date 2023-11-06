@@ -47,7 +47,8 @@ const mainRouter = createBrowserRouter([
             <Home />
           </Suspense>
         ),
-        loader: productData
+        loader: productData,
+        exact: true,
       },
       {
         path: '/about',
@@ -56,6 +57,7 @@ const mainRouter = createBrowserRouter([
             <About />
           </Suspense>
         ),
+        exact: true,
       },
       {
         path: '/shop',
@@ -65,6 +67,7 @@ const mainRouter = createBrowserRouter([
             <Shop />
           </Suspense>
         ),
+        exact: true,
       },
       {
         path: '/blog',
@@ -73,6 +76,7 @@ const mainRouter = createBrowserRouter([
             <Blog />
           </Suspense>
         ),
+        exact: true,
       },
       {
         path: '/product/:id',
@@ -81,6 +85,7 @@ const mainRouter = createBrowserRouter([
             <SingleProduct />
           </Suspense>
         ),
+        exact: true,
       },
       {
         path: '/cart',
@@ -89,6 +94,7 @@ const mainRouter = createBrowserRouter([
             <Cart />
           </Suspense>
         ),
+        exact: true,
       },
       {
         path: '/contact',
@@ -97,6 +103,7 @@ const mainRouter = createBrowserRouter([
             <Contact />
           </Suspense>
         ),
+        exact: true,
       },
       {
         path: '/privacy-policy',
@@ -105,6 +112,7 @@ const mainRouter = createBrowserRouter([
             <PrivacyPolicy />
           </Suspense>
         ),
+        exact: true,
       },
       {
         path: '*',

@@ -30,7 +30,7 @@ const Login = () => {
 
                 setTimeout(() => {
                     navigate('/');
-                }, 1500);
+                }, 500);
             }).catch((error) => {
                 console.log(error);
             });
