@@ -8,29 +8,29 @@ const Blog = () => {
             id: 1,
             imageSrc: Blog1,
             heading: 'The Cotton Jersey Zip-Up Hoddie',
-            paragraph: 'Lorem ipsum dolor Lorem ipsum dolor sit amet consectetur adipisicing Lorem ipsum dolor sit amet consectetur adipisicing Lorem ipsum dolor sit amet consectetur adipisicing sit amet consectetur adipisicing Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
-            imgText: "26/05",
+            paragraph: 'The Cotton Jersey Zip-Up Hoodie is a comfortable and versatile addition to your wardrobe, perfect for casual days or layering with your favorite outfits. With its soft cotton fabric and convenient zipper closure, it combines style and practicality for a cozy and fashionable look.',
+            date: "26/05",
         },
         {
             id: 2,
             imageSrc: Blog2,
-            heading: 'The Cotton Jersey Zip-Up Hoddie',
-            paragraph: ' amet Lorem ipsum dolor sit amet consectetur adipisicing consectetur adipisicing Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
-            imgText: "18/09",
+            heading: `Women's Fancy Dress`,
+            paragraph: `Elevate your style with our Women's Fancy Dress collection. From elegant evening gowns to chic cocktail dresses, our range offers a variety of fashionable options to suit every special occasion. Discover your perfect ensemble for a stunning and memorable look.`,
+            date: "18/09",
         },
         {
             id: 3,
             imageSrc: Blog3,
-            heading: 'The Cotton Jersey Zip-Up Hoddie',
-            paragraph: 'Lorem ipsum dolor sit amet consectetur adipisicing Lorem ipsum dolor sit amet consectetur adipisicing Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
-            imgText: "14/09",
+            heading: 'Brand New Collection',
+            paragraph: 'Explore our brand new collection, a curated selection of the latest trends and timeless classics. From fashion-forward designs to essential everyday pieces, our collection offers a fresh and exciting array of options for you to stay on the cutting edge of style. Discover the latest in fashion and elevate your wardrobe with our exquisite brand new additions.',
+            date: "14/09",
         },
         {
             id: 4,
             imageSrc: Blog4,
-            heading: 'The Cotton Jersey Zip-Up Hoddie',
-            paragraph: 'Lorem ipsum dolor Lorem ipsum dolor sit amet dolor sit amet consectetur adipisicing sit amet consectetur adipisicing Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
-            imgText: "13/02",
+            heading: 'Winter Female Collection',
+            paragraph: 'Introducing our Winter Female Collection – a captivating ensemble of cozy and stylish clothing designed to keep you warm and fashion-forward throughout the chilly season. From luxurious knits to trendy outerwear, our collection combines comfort and elegance to help you embrace the winter months in style. Embrace the cold with confidence, courtesy of our winter essentials.',
+            date: "13/02",
         }
     ];
     return (
@@ -46,16 +46,16 @@ const Blog = () => {
                             <img
                                 src={post.imageSrc}
                                 alt={post.heading}
-                                className="h-[320px] w-full md:w-[540px] object-cover"
+                                className="max-h-[320px] w-full md:w-[540px] object-cover"
                             />
                             <h1 className=" absolute left-0 top-[-2.8rem] text-6xl font-semibold text-gray-400 z-[-2]">
-                                {post.imgText}
+                                {post.date}
                             </h1>
                         </div>
                         <div className='flex flex-col items-start justify-center space-y-3'>
                             <h1 className='text-2xl font-bold'>{post.heading}</h1>
                             <p className='text-gray-500'>{post.paragraph}</p>
-                            <h3 className="bg-purple-700 text-white font-bold py-2 px-4 rounded-full hover:bg-blue-600 cursor-pointer">
+                            <h3 className="bg-purple-700 text-white font-bold py-2 px-4 rounded-full hover:bg-purple-600 cursor-pointer">
                                 Continue Reading
                             </h3>
                         </div>
