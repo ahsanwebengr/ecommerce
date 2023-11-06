@@ -7,6 +7,7 @@ import Loader from './components/Loader';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import { useSelector } from 'react-redux';
 
 const Home = lazy(() => import('./pages/Home'));
 const Cart = lazy(() => import('./pages/Cart'));
@@ -28,7 +29,13 @@ const Layout = () => {
   );
 };
 
-const router = createBrowserRouter([
+const AuthLayout = () => {
+  return (
+    <Outlet />
+  );
+};
+
+const mainRouter = createBrowserRouter([
   {
     path: '/',
     element: <Layout />,
@@ -100,22 +107,6 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: '/login',
-        element: (
-          <Suspense fallback={<Loader />}>
-            <Login />
-          </Suspense>
-        ),
-      },
-      {
-        path: '/signup',
-        element: (
-          <Suspense fallback={<Loader />}>
-            <SignUp />
-          </Suspense>
-        ),
-      },
-      {
         path: '*',
         element: (
           <Suspense fallback={<Loader />}>
@@ -127,11 +118,32 @@ const router = createBrowserRouter([
   },
 ]);
 
+
+const authRouter = createBrowserRouter([
+  {
+    path: '/login',
+    element: (
+      <Suspense fallback={<Loader />}>
+        <Login />
+      </Suspense>
+    ),
+  },
+  {
+    path: '/signup',
+    element: (
+      <Suspense fallback={<Loader />}>
+        <SignUp />
+      </Suspense>
+    ),
+  },
+]);
+
+
 const App = () => {
+  const userInfo = useSelector((state) => state.counter.userInfo);
   return (
     <>
-      <RouterProvider router={router} />
-    </>
+      <RouterProvider router={userInfo ? mainRouter : authRouter} />    </>
   );
 };
 

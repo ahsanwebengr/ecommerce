@@ -1,5 +1,6 @@
 import React from 'react';
 import { shopping } from '../assets';
+import { Link } from 'react-router-dom';
 
 function SignUp() {
 
@@ -50,6 +51,8 @@ function SignUp() {
                                     required
                                 />
                             </div>
+                            <p className='my-4 text-gray-500 text-base'>Already have an account <Link to={'/login'} className='text-purple-600 font-semibold hover:underline'>Login</Link></p>
+
                             <button
                                 type="submit"
                                 className="bg-purple-700 hover:bg-purple-500 text-white py-2 px-4 rounded-md w-full focus:outline-none focus:ring focus:ring-purple-200"
