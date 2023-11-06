@@ -19,9 +19,13 @@ import feature6 from './f6.png';
 import NotFoundImg from "./404.gif";
 import AboutImg from './about.png';
 import shopping from './shopping.jpeg';
+import Blog1 from './b1.jpg';
+import Blog2 from './b2.jpg';
+import Blog3 from './b3.jpg';
+import Blog4 from './b4.jpg';
 
 export {
     logoDark, logoLight, cartImg, paymentLogo, googleLogo, githubLogo, userAvatar, brandLogo, app,
     play, pay, heroImg, feature1, feature2, feature3, feature4, feature5, feature6, NotFoundImg, AboutImg,
-    shopping
+    shopping, Blog1, Blog2, Blog3, Blog4,
 };
