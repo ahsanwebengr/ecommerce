@@ -62,7 +62,7 @@ const Header = () => {
                             </span>
                         </Link>
                     </li>
-                    <li className="nav-items hidden md:block relative" onClick={() => setToggleDropdown(!toggleDropdown)}>
+                    <li className="nav-items hidden md:block relative cursor-pointer" onClick={() => setToggleDropdown(!toggleDropdown)}>
                         <div className="flex gap-2 items-center">
                             <img src={userInfo ? userInfo?.image : userAvatar} alt="user-image" className="w-10 h-10 rounded-full border" />
                         </div>

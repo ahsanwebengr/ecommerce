@@ -47,7 +47,7 @@ const Login = () => {
     };
     return (
         <>
-            <div className="container h-screen flex justify-center items-center py-10">
+            <div className="w-full h-screen flex justify-center items-center py-10">
                 <div className="lg:grid lg:grid-cols-2 w-full">
                     {/* Left Grid (Sign Up Form) */}
                     <div className="rounded-lg lg:rounded-r-none border bg-white lg:flex lg:justify-center lg:items-center lg:h-screen">
@@ -103,8 +103,7 @@ const Login = () => {
 
                             <div className="my-8 grid grid-cols-2 gap-2">
 
-                                {/* <!-- GitHub Sign In Button --> */}
-                                <button className="bg-gray-800 text-white p-2 rounded flex items-center justify-center space-x-2 hover:bg-gray-600 transition-colors">
+                                <button onClick={googleLogin} className="bg-gray-800 text-white p-2 rounded flex items-center justify-center space-x-2 hover:bg-gray-600 transition-colors">
                                     <AiOutlineGoogle />
                                     <span> Google</span>
                                 </button>
@@ -127,41 +126,6 @@ const Login = () => {
                     </div>
                 </div >
             </div >
-            <div className="container flex flex-col items-center justify-center gap-10 py-10">
-                <div className="w-full flex items-center justify-center  flex-wrap gap-10">
-                    <div onClick={googleLogin} className="text-base w-60 h-12 tracking-wide border-[1px] border-gray-400 rounded-md flex items-center justify-center gap-2 hover:border-purple-600 cursor-pointer duration-300">
-                        <img className="w-8" src={googleLogo} alt="googleLogo" />
-                        <span className="text-sm text-gray-900"> Sign in with Google</span>
-                    </div>
-                    {userInfo && <button onClick={handleSignOut} className="bg-black text-white text-base py-3 px-8 tracking-wide rounded-md hover:bg-gray-800 duration-300">
-                        Sign Out
-                    </button>}
-
-                </div>
-                <div className="w-full flex items-center justify-center flex-wrap gap-10">
-                    <div className="text-base w-60 h-12 tracking-wide border-[1px] border-gray-400 rounded-md flex items-center justify-center gap-2 hover:border-purple-600 cursor-pointer duration-300">
-                        <img className="w-8" src={githubLogo} alt="githubLogo" />
-                        <span className="text-sm text-gray-900"> Sign in with Github</span>
-                    </div>
-
-                    {userInfo && <button onClick={handleSignOut} className="bg-black text-white text-base py-3 px-8 tracking-wide rounded-md hover:bg-gray-800 duration-300">
-                        Sign Out
-                    </button>}
-
-                </div>
-                <ToastContainer
-                    position="top-left"
-                    autoClose={2000}
-                    hideProgressBar={false}
-                    newestOnTop={false}
-                    closeOnClick
-                    rtl={false}
-                    pauseOnFocusLoss
-                    draggable
-                    pauseOnHover
-                    theme="dark"
-                />
-            </div>
         </>
     );
 };

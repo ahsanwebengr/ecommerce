@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 function SignUp() {
 
     return (
-        <div className="container h-screen flex justify-center items-center py-10">
+        <div className="w-full h-screen flex justify-center items-center py-10">
             <div className="lg:grid lg:grid-cols-2 w-full">
                 {/* Left Grid (Sign Up Form) */}
                 <div className="rounded-lg lg:rounded-r-none border bg-white lg:flex lg:justify-center lg:items-center lg:h-screen">
@@ -64,11 +64,11 @@ function SignUp() {
                 </div>
 
                 {/* Right Grid (Image) */}
-                <div className="hidden rounded-lg lg:rounded-r-none lg:block lg:w-full bg-white lg:h-screen" >
+                <div className="hidden  lg:block lg:w-full bg-white lg:h-screen" >
                     <img
                         src={shopping}
                         alt="E-commerce"
-                        className='w-full h-full object-cover rounded-lg lg:rounded-l-none'
+                        className='w-full h-full object-cover'
                     />
                 </div>
             </div>
