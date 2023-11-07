@@ -49,7 +49,7 @@ const ProductCard = ({ product }) => {
                 </div>
                 <div className='my-3'>
                     <h6 className='text-black/60 bg-purple-100 capitalize py-1 px-3 text-base font-bold rounded-sm tracking-widest inline '>{product?.category}</h6>
-                    <h2 className='text-xl md:text-3xl font-semibold capitalize my-3.5 text-gray-700 tracking-wide'>{product?.title}</h2>
+                    <h2 className='text-xl md:text-2xl font-semibold capitalize my-3.5 text-gray-700 truncate tracking-wide'>{product?.title}</h2>
                     <div className='flex gap-3 text-2xl md:text-3xl'>
                         {renderRatingStars(product?.rating)}
                     </div>

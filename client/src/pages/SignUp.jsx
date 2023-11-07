@@ -1,8 +1,56 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { shopping } from '../assets';
 import { Link } from 'react-router-dom';
+import { createUserWithEmailAndPassword, getAuth, updateProfile } from 'firebase/auth';
+import { ToastContainer, toast } from 'react-toastify';
 
 function SignUp() {
+    const auth = getAuth();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [name, setName] = useState('');
+    const [image, setImage] = useState('');
+    const [imageFile, setImageFile] = useState(null);
+
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            // Read the selected image file as a data URL
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                setImage(e.target.result);
+                setImageFile(file);
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+
+    const handleSignIn = (e) => {
+        e.preventDefault();
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed up 
+                const user = userCredential.user;
+                console.log(user);
+
+                // Update the user's name and image in your Firebase Database
+                updateProfile(user, {
+                    displayName: name,
+                    photoURL: image,
+                }).then(() => {
+                    // The user's profile has been updated
+                    toast.success('Account signed up');
+                }).catch((error) => {
+                    console.error(error.message);
+                });
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // Handle sign-up errors
+                console.error(errorMessage);
+            });
+    };
 
     return (
         <div className="w-full h-screen flex justify-center items-center py-10">
@@ -11,7 +59,7 @@ function SignUp() {
                 <div className="rounded-lg lg:rounded-r-none border bg-white lg:flex lg:justify-center lg:items-center lg:h-screen">
                     <div className="lg:w-[25rem] p-4 sm:w-full sm:h-[70vh] md:h-[60vh]">
                         <h2 className="text-3xl font-semibold mb-4">Sign Up Here</h2>
-                        <form>
+                        <form onSubmit={handleSignIn}>
                             <div className="mb-4">
                                 <label htmlFor="username" className="block text-sm font-medium text-gray-600">Username</label>
                                 <input
@@ -20,6 +68,8 @@ function SignUp() {
                                     name="username"
                                     className="border border-gray-300 rounded-md w-full py-2 px-3 focus:outline-none focus:ring focus:ring-purple-200"
                                     required
+                                    onChange={(e) => setName(e.target.value)}
+                                    value={name}
                                 />
                             </div>
                             <div className="mb-4">
@@ -29,9 +79,18 @@ function SignUp() {
                                     id="image"
                                     name="image"
                                     accept="image/*"
+                                    onChange={handleImageChange}
                                     className="border border-gray-300 rounded-md w-full py-2 px-3 focus:outline-none focus:ring focus:ring-purple-200"
                                 />
                             </div>
+                            {image && (
+                                <img
+                                    src={image}
+                                    alt="Selected Image"
+                                    style={{ maxWidth: '100px' }}
+                                />
+                            )}
+
                             <div className="mb-4">
                                 <label htmlFor="email" className="block text-sm font-medium text-gray-600">Email</label>
                                 <input
@@ -40,6 +99,8 @@ function SignUp() {
                                     name="email"
                                     className="border border-gray-300 rounded-md w-full py-2 px-3 focus:outline-none focus:ring focus:ring-purple-200"
                                     required
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    value={email}
                                 />
                             </div>
                             <div className="mb-4">
@@ -49,6 +110,8 @@ function SignUp() {
                                     name="password"
                                     className="border border-gray-300 rounded-md w-full py-2 px-3 focus:outline-none focus:ring focus:ring-purple-200"
                                     required
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    value={password}
                                 />
                             </div>
                             <p className='my-4 text-gray-500 text-base'>Already have an account <Link to={'/login'} className='text-purple-600 font-semibold hover:underline'>Login</Link></p>
@@ -72,6 +135,18 @@ function SignUp() {
                     />
                 </div>
             </div>
+            <ToastContainer
+                position="top-left"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"
+            />
         </div>
     );
 }
