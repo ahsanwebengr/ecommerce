@@ -66,15 +66,25 @@ const Header = () => {
                         <div className="flex gap-2 items-center">
                             <img src={userInfo ? userInfo?.image : userAvatar} alt="user-image" className="w-10 h-10 rounded-full border" />
                         </div>
-                        {userInfo && <ul className={`${toggleDropdown ? "" : 'hidden'} bg-white shadow w-40 absolute left-[-120px] p-1.5 rounded-md z-10`} >
-                            <li className="p-2 border-b flex items-center gap-2 cursor-pointer">
-                                <FaUserAlt />
-                                <p className='decoration-gray-600'>{userInfo?.name.split(' ')[0]}</p>
-                            </li>
-                            <li className="p-2 flex items-center gap-2 cursor-pointer" onClick={handleSignOut}>
-                                <IoExitOutline size={24} />
-                                <span>Logout</span></li>
-                        </ul>}
+                        <ul className={`${toggleDropdown ? "" : 'hidden'} bg-white shadow w-40 absolute left-[-120px] p-1.5 rounded-md z-10`} >
+                            {
+                                userInfo && <li className="p-2 border-b flex items-center gap-2 cursor-pointer">
+                                    <FaUserAlt />
+                                    <p className='decoration-gray-600'>{userInfo?.name}</p>
+                                </li>
+                            }
+                            {
+                                userInfo ? <li className="p-2 flex items-center gap-2 cursor-pointer" onClick={handleSignOut}>
+                                    <IoExitOutline size={24} />
+                                    <span>Logout</span>
+                                </li>
+                                    : <li className="p-2 flex items-center gap-2 cursor-pointer" onClick={() => navigate('/login')}>
+                                        <IoExitOutline size={24} />
+                                        <span>Login</span>
+                                    </li>
+                            }
+
+                        </ul>
                     </li>
                 </ul>
                 <div className="flex md:hidden gap-4 items-center">

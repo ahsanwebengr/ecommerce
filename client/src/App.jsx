@@ -7,7 +7,6 @@ import Loader from './components/Loader';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import PrivacyPolicy from './pages/PrivacyPolicy';
-import { useSelector } from 'react-redux';
 
 const Home = lazy(() => import('./pages/Home'));
 const Cart = lazy(() => import('./pages/Cart'));
@@ -29,11 +28,7 @@ const Layout = () => {
   );
 };
 
-const AuthLayout = () => {
-  return (
-    <Outlet />
-  );
-};
+
 
 const mainRouter = createBrowserRouter([
   {
@@ -124,10 +119,6 @@ const mainRouter = createBrowserRouter([
       },
     ],
   },
-]);
-
-
-const authRouter = createBrowserRouter([
   {
     path: '/login',
     element: (
@@ -147,11 +138,13 @@ const authRouter = createBrowserRouter([
 ]);
 
 
+
+
 const App = () => {
-  const userInfo = useSelector((state) => state.counter.userInfo);
   return (
     <>
-      <RouterProvider router={userInfo ? mainRouter : authRouter} />    </>
+      <RouterProvider router={mainRouter} />
+    </>
   );
 };
 
