@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import { userAvatar } from '../assets';
 import { shopping } from '../assets';
 import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword } from "firebase/auth";
 import { useDispatch, useSelector } from 'react-redux';
@@ -49,7 +49,7 @@ const Login = () => {
                 addUser({
                     _id: user?.uid,
                     name: user?.displayName,
-                    image: user?.photoURL,
+                    image: user?.photoURL ? user.photoURL : userAvatar,
                     email: user?.email
                 })
             );
