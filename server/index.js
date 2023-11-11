@@ -23,7 +23,7 @@ app.post('/pay', async (req, res) => {
             amount: req.body.amount,
             currency: 'usd',
         });
-        res.json({ message: 'Payment successful', charge });
+        res.status(200).json({ message: 'Payment successful', charge });
     } catch (error) {
         res.status(500).json({ error: 'Payment failed', message: error.message });
     }
