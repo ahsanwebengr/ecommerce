@@ -1,0 +1,1 @@
+import{j as s,L as e}from"./index-33a26ca7.js";const t="/assets/404-a3931c9e.gif",o=()=>s.jsx("section",{className:"py-10",children:s.jsxs("div",{className:"container flex items-center justify-center flex-col gap-3",children:[s.jsx("img",{src:t,alt:"not Found Image"}),s.jsx(e,{to:"/",className:"btn-brand",children:"Go Back to Home"})]})});export{o as default};
