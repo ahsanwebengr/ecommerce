@@ -9,9 +9,9 @@ const NewsLetter = () => {
                     </div>
                     <form className="flex h-14 rounded-md">
                         <input type="email" placeholder="Email Address"
-                            className='grow h-full rounded-l-md pl-2.5 text-base md:text-xl focus:outline-none' />
+                            className='w-9/12 h-full rounded-l-md pl-2.5 text-base md:text-xl focus:outline-none' />
                         <button type="submit"
-                            className="w-24 sm:w-32 bg-purple-700 hover:bg-purple-600 h-full rounded-r-md text-white font-semibold text-base md:text-xl">Sign Up</button>
+                            className="w-1/4 bg-purple-700 hover:bg-purple-600 h-full rounded-r-md text-white font-semibold text-base md:text-xl">Sign Up</button>
                     </form>
                 </div>
             </div>
