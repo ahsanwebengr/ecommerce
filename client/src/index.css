@@ -28,7 +28,7 @@ body {
 
 
 .container {
-    @apply max-w-screen-xl mx-auto px-4 md:px-8
+    @apply max-w-screen-xl mx-auto px-3 md:px-8
 }
 
 

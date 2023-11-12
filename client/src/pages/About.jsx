@@ -8,7 +8,7 @@ const About = () => {
     return (
         <>
             <SectionBanner heading={'#Know Us'} subHeading={'Visit Our Website and knew about Latest Products'} bgImg={'cart-banner'} />
-            <div className="container">
+            <div className="container py-5">
                 <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-5">
                     <img src={AboutImg} alt="about-img" className='w-full' />
                     <div className="flex flex-col">

@@ -73,8 +73,8 @@ const Cart = () => {
                         </div>
                         {payNow && <div className="text-center">
                             <StripeCheckout
-                                name="Amazon Pro"
-                                label='Pay to Amazon Pro'
+                                name="Cara Store"
+                                label='Pay to Cara Store'
                                 description={`Your payment amount is ${totalAmount}`}
                                 amount={`${totalAmount * 100}`}
                                 currency="USD"
