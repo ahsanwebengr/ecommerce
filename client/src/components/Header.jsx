@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { brandLogo, userAvatar } from "../assets/index";
 import { HiOutlineMenuAlt1, HiOutlineShoppingCart } from 'react-icons/hi';
@@ -54,7 +54,6 @@ const Header = () => {
         });
     };
 
-
     return (
         <nav className="sticky top-0 left-0 shadow-xl z-40 w-full bg-white">
             <div className="container py-6 flex items-center justify-between">
@@ -85,7 +84,7 @@ const Header = () => {
                             {
                                 userInfo && <li className="p-2 border-b flex items-center gap-2 cursor-pointer">
                                     <FaUserAlt />
-                                    <p className='decoration-gray-600'>{userInfo?.name}</p>
+                                    <p className='decoration-gray-600 truncate'>{userInfo?.name}</p>
                                 </li>
                             }
                             {
@@ -117,7 +116,7 @@ const Header = () => {
                             {
                                 userInfo && <li className="p-2 border-b flex items-center gap-2 cursor-pointer">
                                     <FaUserAlt />
-                                    <p className='decoration-gray-600'>{userInfo?.name}</p>
+                                    <p className='decoration-gray-600 truncate'>{userInfo?.name}</p>
                                 </li>
                             }
                             {
