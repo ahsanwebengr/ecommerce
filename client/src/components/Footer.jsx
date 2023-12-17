@@ -62,7 +62,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="text-center mt-6">
-                    <p className="text-xs md:text-base text-gray-600"> © Copyright All right reserved by <span className="text-purple-700">Muhammad Ahsan</span></p>
+                    <p className="text-xs md:text-base text-gray-600"> © {new Date().getFullYear()} Copyright All right reserved by <span className="text-purple-700">Muhammad Ahsan</span></p>
                 </div>
             </div>
         </footer>

@@ -80,7 +80,7 @@ const CartItem = () => {
                         </div>
                     ))}
                 </ul>
-                <button onClick={() => dispatch(resetCart()) & toast.error("Your Cart is Empty!")} className="bg-orange-600 rounded-sm text-base md:text-lg text-white mt-8  py-1 px-6 hover:bg-orange-800 duration-300">Reset Cart</button>
+                <button onClick={() => dispatch(resetCart()) & toast.error("Your Cart is Empty!")} className="btn btn-error text-white py-0 px-8 rounded-sm">Reset Cart</button>
             </div>
             <Link to="/">
                 <button className="mt-8 flex items-center gap-1 text-gray-400 hover:text-black hover:underline underline-offset-2 decoration-gray-400 duration-300">

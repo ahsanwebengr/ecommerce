@@ -55,9 +55,9 @@ const Blog = () => {
                         <div className='flex flex-col items-start justify-center space-y-3'>
                             <h1 className='text-2xl font-bold'>{post.heading}</h1>
                             <p className='text-gray-500'>{post.paragraph}</p>
-                            <h3 className="bg-purple-700 text-white font-bold py-2 px-4 rounded-full hover:bg-purple-600 cursor-pointer">
+                            <button className="btn bg-purple-700 hover:bg-purple-500 text-white rounded-full">
                                 Continue Reading
-                            </h3>
+                            </button>
                         </div>
                     </div>
                 ))}

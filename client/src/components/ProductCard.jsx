@@ -70,7 +70,7 @@ const ProductCard = ({ product }) => {
                 }))
                     && toast.success(`${product.title} added successfully`)
 
-                } className='text-2xl w-12 h-12 rounded-full bg-purple-100 text-purple-700 grid place-items-center hover:bg-purple-700 hover:text-white transition-all duration-200'> <FaShoppingCart /> </button>
+                } className='btn btn-circle bg-purple-100 text-purple-700 hover:bg-purple-700 hover:text-white '> <FaShoppingCart size={24}/> </button>
             </div>
             <ToastContainer
                 position="top-left"

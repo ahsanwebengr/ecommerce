@@ -28,6 +28,18 @@ const SingleProduct = () => {
         navigate('/cart');
     };
 
+    const renderRatingStars = (rating) => {
+        const stars = [];
+        for (let i = 1; i <= 5; i++) {
+            if (i <= rating) {
+                stars.push(<AiFillStar key={i} className="text-yellow-500" />);
+            } else {
+                stars.push(<AiFillStar key={i} className="text-gray-300" />);
+            }
+        }
+        return stars;
+    };
+
     return (
         <section className='py-10'>
             <div className="container flex flex-col md:flex-row items-center gap-4">
@@ -43,11 +55,7 @@ const SingleProduct = () => {
                         <h5 className='font-bold text-green-600 text-xl md:text-3xl tracking-wide'>${details?.price}</h5>
                     </div>
                     <div className='flex gap-1 md:gap-3 items-center text-yellow-400 text-xl md:text-2xl my-8'>
-                        <AiFillStar />
-                        <AiFillStar />
-                        <AiFillStar />
-                        <AiFillStar />
-                        <AiFillStar />
+                        {renderRatingStars(details?.rating)}
                         <p className='text-sm md:text-base text-gray-500'>({details?.rating} Customer review)</p>
                     </div>
                     <p className='text-lg text-gray-500'>{details.description}</p>
@@ -60,7 +68,7 @@ const SingleProduct = () => {
                                 <button className='border p-2 hover:bg-gray-700 hover:text-white active:bg-black duration-150' onClick={() => setBaseQuantity(baseQuantity + 1)}> <AiOutlinePlus /> </button>
                             </div>
                         </div>
-                        <button onClick={handleCart} className='text-white bg-black px-6 py-3.5 h-full active:bg-gray-800 rounded-sm text-base font-semibold '>Add to Cart</button>
+                        <button onClick={handleCart} className='btn btn-neutral text-white rounded-sm'>Add to Cart</button>
                     </div>
                     <p className='text-lg text-gray-500'>Category : <span className='capitalize font-medium'>{details.category}</span></p>
                 </div>
