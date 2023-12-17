@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import { userAvatar } from '../assets';
 import { shopping } from '../assets';
 import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword } from "firebase/auth";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { addUser } from '../redux/counterSlice';
 import { AiOutlineGoogle } from 'react-icons/ai';
+import { toast } from 'react-toastify';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const userInfo = useSelector((state) => state.counter.userInfo);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const auth = getAuth();
@@ -44,7 +44,7 @@ const Login = () => {
         try {
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
             const user = userCredential.user;
-            console.log(user);
+
             dispatch(
                 addUser({
                     _id: user?.uid,
@@ -54,11 +54,12 @@ const Login = () => {
                 })
             );
 
+            toast.success('Login successfully.');
+
             navigate('/');
         } catch (error) {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.error(errorCode, errorMessage);
+            error === 'auth/invalid-login-credentials' && toast.error('Invalid login credentials.');
+            console.log(error);
         }
     };
     return (
@@ -67,7 +68,7 @@ const Login = () => {
                 <div className="lg:grid lg:grid-cols-2 w-full">
                     {/* Left Grid (Sign Up Form) */}
                     <div className="rounded-lg lg:rounded-r-none border bg-white lg:flex lg:justify-center lg:items-center lg:h-screen">
-                        <div className="lg:w-[25rem] p-4 sm:w-full sm:h-[70vh] md:h-[60vh]">
+                        <div className="lg:w-[25rem] p-4 sm:w-full py-4">
                             <h2 className="text-2xl font-semibold mb-4">Sign in to your Account</h2>
                             <form onSubmit={handleSignIn}>
                                 <div className="mb-4">
@@ -104,7 +105,7 @@ const Login = () => {
                                 </div>
                                 <button
                                     type="submit"
-                                    className="bg-purple-700 hover:bg-purple-500 text-white py-2 px-4 rounded-md w-full focus:outline-none focus:ring focus:ring-purple-200"
+                                    className="btn bg-purple-700 hover:bg-purple-500 text-white btn-block text-lg"
                                 >
                                     Login
                                 </button>
@@ -112,17 +113,10 @@ const Login = () => {
 
                             <p className='mt-3 text-gray-500 text-base'>Don't have an account <Link to={'/signup'} className='text-purple-600 font-semibold hover:underline'>Create</Link></p>
 
-                            <div className='text-center my-6 flex items-center justify-center'>
-                                <span className='relative'>Or Continue with
-                                    <span className='absolute left-[-7.5rem] top-1/2 bg-slate-200 h-[1px] w-4/5 hidden md:block'></span>
-                                    <span className='absolute right-[-7.5rem] top-1/2 bg-slate-200 h-[1px] w-4/5 hidden md:block'></span>
-
-                                </span>
-                            </div>
+                            <div className="divider">OR</div>
 
                             <div className="my-8 w-full">
-
-                                <button onClick={googleLogin} className="bg-gray-800 w-full text-white p-2 rounded flex items-center justify-center space-x-2 hover:bg-gray-600 transition-colors">
+                                <button onClick={googleLogin} className="btn btn-neutral text-white btn-block text-lg">
                                     <AiOutlineGoogle />
                                     <span> Google</span>
                                 </button>
@@ -138,8 +132,8 @@ const Login = () => {
                             className='w-full h-full object-cover'
                         />
                     </div>
-                </div >
-            </div >
+                </div>
+            </div>
         </>
     );
 };

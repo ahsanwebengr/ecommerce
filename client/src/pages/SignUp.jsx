@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { shopping } from '../assets';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, getAuth, updateProfile } from 'firebase/auth';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 const SignUp = () => {
+    const navigate = useNavigate();
     const auth = getAuth();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -43,6 +44,8 @@ const SignUp = () => {
                 setPassword('');
                 setImage('');
                 setName('');
+
+                navigate('/login');
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -82,12 +85,9 @@ const SignUp = () => {
                                 <label htmlFor="image" className="block text-sm font-medium text-gray-600">Image</label>
                                 <input
                                     type="file"
-                                    id="image"
-                                    name="image"
+                                    className="file-input file-input-bordered  w-full"
                                     accept="image/*"
-                                    onChange={handleImageChange}
-                                    className="border border-gray-300 rounded-md w-full py-2 px-3 focus:outline-none focus:ring focus:ring-purple-200"
-                                />
+                                    onChange={handleImageChange} />
                             </div>
                             {image && (
                                 <img
@@ -124,7 +124,7 @@ const SignUp = () => {
 
                             <button
                                 type="submit"
-                                className="bg-purple-700 hover:bg-purple-500 text-white py-2 px-4 rounded-md w-full focus:outline-none focus:ring focus:ring-purple-200"
+                                className="btn bg-purple-700 hover:bg-purple-500 text-white btn-block text-lg"
                             >
                                 Sign Up
                             </button>
@@ -141,18 +141,6 @@ const SignUp = () => {
                     />
                 </div>
             </div>
-            <ToastContainer
-                position="top-left"
-                autoClose={3000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="dark"
-            />
         </div>
     );
 };
