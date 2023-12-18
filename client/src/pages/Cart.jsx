@@ -68,7 +68,7 @@ const Cart = () => {
                                     <dd className="text-base md:text-lg font-medium text-gray-900">$ {totalAmount}</dd>
                                 </div>
                             </dl>
-                            <button onClick={handleCheckout} className='btn btn-neutral text-white btn-block'>Proceed to Checkout</button>
+                            <button onClick={handleCheckout} className='btn btn-neutral text-lg text-white btn-block'>Proceed to Checkout</button>
                             <p className="px-2 pb-4 font-medium text-green-700 mt-4">You can save on this order using Redeem Codes</p>
                         </div>
                         {payNow && <div className="text-center">

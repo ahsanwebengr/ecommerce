@@ -9,9 +9,9 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
                 {pages.map((page) => (
                     <li
                         key={page}
-                        className={`w-10 h-10 grid place-items-center rounded-full cursor-pointer ${currentPage === page
-                            ? 'bg-purple-700 text-white  duration-200'
-                            : 'hover:bg-purple-400 hover:text-white'
+                        className={`btn btn-circle ${currentPage === page
+                            ? 'btn-primary btn text-white'
+                            : 'hover:btn-primary hover:text-white bg-transparent border-transparent'
                             }`}
                         onClick={() => onPageChange(page)}
                     >

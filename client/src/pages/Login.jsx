@@ -77,7 +77,7 @@ const Login = () => {
                                         type="email"
                                         id="email"
                                         name="email"
-                                        className="border border-gray-300 rounded-md w-full py-2 px-3 focus:outline-none focus:ring focus:ring-purple-200"
+                                        className="input input-bordered input-primary w-full"
                                         required
                                         onChange={(e) => setEmail(e.target.value)}
                                         value={email}
@@ -88,7 +88,7 @@ const Login = () => {
                                     <input
                                         type="password"
                                         name="password"
-                                        className="border border-gray-300 rounded-md w-full py-2 px-3 focus:outline-none focus:ring focus:ring-purple-200"
+                                        className="input input-bordered input-primary w-full"
                                         required
                                         onChange={(e) => setPassword(e.target.value)}
                                         value={password}
@@ -105,13 +105,13 @@ const Login = () => {
                                 </div>
                                 <button
                                     type="submit"
-                                    className="btn bg-purple-700 hover:bg-purple-500 text-white btn-block text-lg"
+                                    className="btn btn-primary text-white btn-block text-lg"
                                 >
                                     Login
                                 </button>
                             </form>
 
-                            <p className='mt-3 text-gray-500 text-base'>Don't have an account <Link to={'/signup'} className='text-purple-600 font-semibold hover:underline'>Create</Link></p>
+                            <p className='mt-3 text-gray-500 text-base'>Don't have an account <Link to={'/signup'} className='link link-primary'>Create</Link></p>
 
                             <div className="divider">OR</div>
 

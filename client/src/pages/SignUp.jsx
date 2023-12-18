@@ -75,7 +75,7 @@ const SignUp = () => {
                                     type="text"
                                     id="username"
                                     name="username"
-                                    className="border border-gray-300 rounded-md w-full py-2 px-3 focus:outline-none focus:ring focus:ring-purple-200"
+                                    className="input input-bordered input-primary w-full"
                                     required
                                     onChange={(e) => setName(e.target.value)}
                                     value={name}
@@ -85,7 +85,7 @@ const SignUp = () => {
                                 <label htmlFor="image" className="block text-sm font-medium text-gray-600">Image</label>
                                 <input
                                     type="file"
-                                    className="file-input file-input-bordered  w-full"
+                                    className="file-input file-input-primary  w-full"
                                     accept="image/*"
                                     onChange={handleImageChange} />
                             </div>
@@ -103,7 +103,7 @@ const SignUp = () => {
                                     type="email"
                                     id="email"
                                     name="email"
-                                    className="border border-gray-300 rounded-md w-full py-2 px-3 focus:outline-none focus:ring focus:ring-purple-200"
+                                    className="input input-bordered input-primary w-full"
                                     required
                                     onChange={(e) => setEmail(e.target.value)}
                                     value={email}
@@ -114,13 +114,13 @@ const SignUp = () => {
                                 <input
                                     type="password"
                                     name="password"
-                                    className="border border-gray-300 rounded-md w-full py-2 px-3 focus:outline-none focus:ring focus:ring-purple-200"
+                                    className="input input-bordered input-primary w-full"
                                     required
                                     onChange={(e) => setPassword(e.target.value)}
                                     value={password}
                                 />
                             </div>
-                            <p className='my-4 text-gray-500 text-base'>Already have an account <Link to={'/login'} className='text-purple-600 font-semibold hover:underline'>Login</Link></p>
+                            <p className='my-4 text-gray-500 text-base'>Already have an account <Link to={'/login'} className='link link-primary'>Login</Link></p>
 
                             <button
                                 type="submit"

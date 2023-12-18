@@ -30,33 +30,33 @@ const Contact = () => {
                         </p>
                         <ul className="mb-6 md:mb-0">
                             <li className="flex">
-                                <div className="flex h-10 w-10 items-center justify-center rounded bg-purple-900 text-gray-50">
+                                <div className="btn btn-square btn-primary text-2xl text-gray-50">
                                     <FaMapMarkerAlt />
                                 </div>
                                 <div className="ml-4 mb-4">
-                                    <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">Our Address
+                                    <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900">Our Address
                                     </h3>
                                     <p className="text-gray-600 ">1230 Maecenas Street Donec Road</p>
                                     <p className="text-gray-600 ">New York, EEUU</p>
                                 </div>
                             </li>
                             <li className="flex">
-                                <div className="flex h-10 w-10 items-center justify-center rounded bg-purple-900">
+                                <div className="btn btn-square btn-primary text-2xl text-gray-50">
                                     <LuPhoneCall className='text-white' />
                                 </div>
                                 <div className="ml-4 mb-4">
-                                    <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">Contact
+                                    <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900">Contact
                                     </h3>
                                     <p className="text-gray-600 ">Mobile: +1 (123) 456-7890</p>
                                     <p className="text-gray-600 ">Mail: tailnext@gmail.com</p>
                                 </div>
                             </li>
                             <li className="flex">
-                                <div className="flex h-10 w-10 items-center justify-center rounded bg-purple-900 text-gray-50">
+                                <div className="btn btn-square btn-primary text-2xl text-gray-50">
                                     <BiTime />
                                 </div>
                                 <div className="ml-4 mb-4">
-                                    <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">Working
+                                    <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900">Working
                                         hours</h3>
                                     <p className="text-gray-600 ">Monday - Friday: 08:00 - 17:00</p>
                                     <p className="text-gray-600 ">Saturday &amp; Sunday: 08:00 - 12:00</p>
@@ -73,7 +73,7 @@ const Contact = () => {
                                     <div className="mx-0 mb-1 sm:mb-4">
                                         <input type="text" placeholder="Enter Name*"
                                             {...register('name', { required: 'Name required', })}
-                                            className={`mb-2 w-full rounded-md border ${errors.name ? 'border-red-500' : 'border-gray-400'}  py-2 pl-2 pr-4 shadow-md sm:mb-0 focus:border-purple-400 focus:outline-none focus:border-2`}
+                                            className={`mb-2 w-full input input-bordered input-primary ${errors.name && 'border-red-500'}`}
                                         />
                                         {errors.name?.type === "required" && (
                                             <small className="text-red-500">{errors.name.message}</small>
@@ -89,7 +89,7 @@ const Contact = () => {
                                                     message: 'Invalid email address',
                                                 },
                                             })}
-                                            className={`mb-2 w-full rounded-md border ${errors.email ? 'border-red-500' : 'border-gray-400'} py-2 pl-2 pr-4 shadow-md sm:mb-0 focus:border-purple-400 focus:outline-none focus:border-2`}
+                                            className={`mb-2 w-full input input-bordered input-primary ${errors.email && 'border-red-500'}`}
                                         />
                                         {errors.email && (
                                             <small className='text-red-500'>{errors.email.message}</small>
@@ -97,18 +97,18 @@ const Contact = () => {
                                     </div>
                                     <div className="mx-0 mb-1 sm:mb-4">
                                         <input type="text" placeholder="Enter Subject*"
-                                            {...register('subject', { required: 'Subject required', })} className={`mb-2 w-full rounded-md border ${errors.subject ? 'border-red-500' : 'border-gray-400'}  py-2 pl-2 pr-4 shadow-md sm:mb-0 focus:border-purple-400 focus:outline-none focus:border-2`} />
+                                            {...register('subject', { required: 'Subject required', })} className={`mb-2 w-full input input-bordered input-primary ${errors.subject && 'border-red-500'}`} />
                                         {errors.subject?.type === "required" && (
                                             <small className='text-red-500'>{errors.subject.message}</small>
                                         )}
                                     </div>
                                 </div>
                                 <div className="mx-0 mb-1 sm:mb-4">
-                                    <textarea cols="30" rows="5" placeholder="Write your message..." className="mb-2 w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md sm:mb-0 focus:border-purple-400 focus:outline-none focus:border-2"></textarea>
+                                    <textarea cols="30" rows="5" placeholder="Write your message..." className="mb-2 w-full textarea textarea-primary"></textarea>
                                 </div>
                             </div>
                             <div className="text-center">
-                                <button type="submit" className="w-full bg-purple-800 text-white px-6 py-3 font-xl rounded-md sm:mb-0">Send Message</button>
+                                <button type="submit" className="btn btn-block btn-primary text-white text-lg">Send Message</button>
                             </div>
                         </form>
                     </div>

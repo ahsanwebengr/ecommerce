@@ -12,17 +12,34 @@ export default {
       },
     },
   },
+
+  daisyui: {
+    themes: [
+      {
+        mytheme: {
+
+          "primary": "#7E22CE",
+
+          "secondary": "#007500",
+
+          "accent": "#c67d00",
+
+          "neutral": "#1f212b",
+
+          "base-100": "#fcfcfc",
+
+          "info": "#0072e9",
+
+          "success": "#00da9e",
+
+          "warning": "#b69300",
+
+          "error": "#cc243f",
+        },
+      },
+    ],
+  },
   plugins: [require("daisyui")],
 
-  // daisyUI config (optional - here are the default values)
-  daisyui: {
-    themes: false, // false: only light + dark | true: all themes | array: specific themes like this ["light", "dark", "cupcake"]
-    darkTheme: "light", // name of one of the included themes for dark mode
-    base: true, // applies background color and foreground color for root element by default
-    styled: true, // include daisyUI colors and design decisions for all components
-    utils: true, // adds responsive and modifier utility classes
-    prefix: "", // prefix for daisyUI classnames (components, modifiers and responsive class names. Not colors)
-    logs: true, // Shows info about daisyUI version and used config in the console when building your CSS
-    themeRoot: ":root", // The element that receives theme color CSS variables
-  },
+
 };
