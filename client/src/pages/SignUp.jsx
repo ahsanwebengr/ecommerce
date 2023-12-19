@@ -30,7 +30,6 @@ const SignUp = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
-                // console.log(user);
                 updateProfile(user, {
                     displayName: name,
                     photoURL: image,
@@ -85,7 +84,7 @@ const SignUp = () => {
                                 <label htmlFor="image" className="block text-sm font-medium text-gray-600">Image</label>
                                 <input
                                     type="file"
-                                    className="file-input file-input-primary  w-full"
+                                    className="file-input file-input-primary w-full"
                                     accept="image/*"
                                     onChange={handleImageChange} />
                             </div>

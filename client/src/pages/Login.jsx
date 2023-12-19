@@ -49,7 +49,7 @@ const Login = () => {
                 addUser({
                     _id: user?.uid,
                     name: user?.displayName,
-                    image: user?.photoURL ? user.photoURL : userAvatar,
+                    image: user?.photoURL ? user?.photoURL : userAvatar,
                     email: user?.email
                 })
             );
@@ -58,8 +58,12 @@ const Login = () => {
 
             navigate('/');
         } catch (error) {
-            error === 'auth/invalid-login-credentials' && toast.error('Invalid login credentials.');
-            console.log(error);
+            const errorMessage = error.message;
+
+            if (errorMessage === 'auth/invalid-login-credentials') {
+                toast.error('Invalid login credentials.');
+            }
+            console.log(errorMessage);
         }
     };
     return (

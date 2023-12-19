@@ -10,7 +10,7 @@ const Banner = () => {
                     <h2 className="text-3xl md:text-6xl font-bold my-2 text-gray-800">Super Value Deals</h2>
                     <h1 className="text-4xl md:text-7xl text-purple-700 font-bold">On all Products</h1>
                     <p className="text- md:text-xl text-gray-700 font-medium mt-5 mb-10">Save more with coupons and up to 70% Off</p>
-                    <Link to={'/shop'} className="btn btn-outline btn-primary btn-wide rounded-full text-lg">Shop Now</Link>
+                    <Link to={'/shop'} className="btn btn-outline btn-primary btn-wide rounded-full hover:text-gray-50 text-lg">Shop Now</Link>
                 </div>
             </div>
         </section>
