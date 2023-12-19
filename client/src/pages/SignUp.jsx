@@ -12,6 +12,7 @@ const SignUp = () => {
     const [name, setName] = useState('');
     const [image, setImage] = useState('');
     const [imageFile, setImageFile] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -27,6 +28,8 @@ const SignUp = () => {
 
     const handleSignUp = (e) => {
         e.preventDefault();
+        setLoading(true);
+
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
@@ -44,6 +47,7 @@ const SignUp = () => {
                 setImage('');
                 setName('');
 
+                setLoading(false);
                 navigate('/login');
             })
             .catch((error) => {
@@ -67,12 +71,16 @@ const SignUp = () => {
                 <div className="rounded-lg lg:rounded-r-none border bg-white lg:flex lg:justify-center lg:items-center lg:h-screen">
                     <div className="lg:w-[25rem] p-4 sm:w-full sm:h-[70vh] md:h-[60vh]">
                         <h2 className="text-3xl font-semibold mb-4">Sign Up Here</h2>
-                        <form onSubmit={handleSignUp}>
+                        <form id='sign-up-form' onSubmit={handleSignUp}>
                             <div className="mb-4">
-                                <label htmlFor="username" className="block text-sm font-medium text-gray-600">Username</label>
+                                <label htmlFor="username" className="block text-sm font-medium text-gray-600">
+                                    Username
+                                    <span className='text-red-500'>*</span>
+                                </label>
                                 <input
                                     type="text"
                                     id="username"
+                                    autoComplete="autocomplete"
                                     name="username"
                                     className="input input-bordered input-primary w-full"
                                     required
@@ -84,6 +92,7 @@ const SignUp = () => {
                                 <label htmlFor="image" className="block text-sm font-medium text-gray-600">Image</label>
                                 <input
                                     type="file"
+                                    id='image'
                                     className="file-input file-input-primary w-full"
                                     accept="image/*"
                                     onChange={handleImageChange} />
@@ -97,10 +106,14 @@ const SignUp = () => {
                             )}
 
                             <div className="mb-4">
-                                <label htmlFor="email" className="block text-sm font-medium text-gray-600">Email</label>
+                                <label htmlFor="email" className="block text-sm font-medium text-gray-600">
+                                    Email
+                                    <span className='text-red-500'>*</span>
+                                </label>
                                 <input
                                     type="email"
                                     id="email"
+                                    autoComplete="autocomplete"
                                     name="email"
                                     className="input input-bordered input-primary w-full"
                                     required
@@ -109,9 +122,13 @@ const SignUp = () => {
                                 />
                             </div>
                             <div className="mb-4">
-                                <label htmlFor="password" className="block text-sm font-medium text-gray-600">Password</label>
+                                <label htmlFor="password" className="block text-sm font-medium text-gray-600">
+                                    Password
+                                    <span className='text-red-500'>*</span>
+                                </label>
                                 <input
                                     type="password"
+                                    id='password'
                                     name="password"
                                     className="input input-bordered input-primary w-full"
                                     required
@@ -125,7 +142,7 @@ const SignUp = () => {
                                 type="submit"
                                 className="btn bg-purple-700 hover:bg-purple-500 text-white btn-block text-lg"
                             >
-                                Sign Up
+                                {loading ? <span className="loading loading-spinner loading-sm"></span> : 'Signup'}
                             </button>
                         </form>
                     </div>

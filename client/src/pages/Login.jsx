@@ -11,6 +11,7 @@ import { toast } from 'react-toastify';
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [loading, setLoading] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const auth = getAuth();
@@ -40,7 +41,7 @@ const Login = () => {
 
     const handleSignIn = async (e) => {
         e.preventDefault();
-
+        setLoading(true);
         try {
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
             const user = userCredential.user;
@@ -55,15 +56,15 @@ const Login = () => {
             );
 
             toast.success('Login successfully.');
-
             navigate('/');
+            setLoading(false);
         } catch (error) {
             const errorMessage = error.message;
-
-            if (errorMessage === 'auth/invalid-login-credentials') {
+            if (errorMessage === 'Firebase: Error (auth/invalid-login-credentials).') {
                 toast.error('Invalid login credentials.');
+            } else {
+                toast.error(errorMessage);
             }
-            console.log(errorMessage);
         }
     };
     return (
@@ -74,13 +75,14 @@ const Login = () => {
                     <div className="rounded-lg lg:rounded-r-none border bg-white lg:flex lg:justify-center lg:items-center lg:h-screen">
                         <div className="lg:w-[25rem] p-4 sm:w-full py-4">
                             <h2 className="text-2xl font-semibold mb-4">Sign in to your Account</h2>
-                            <form onSubmit={handleSignIn}>
+                            <form id='sign-in-form' onSubmit={handleSignIn}>
                                 <div className="mb-4">
                                     <label htmlFor="email" className="block text-sm font-medium text-gray-600">Email Address</label>
                                     <input
                                         type="email"
                                         id="email"
                                         name="email"
+                                        autoComplete="autoComplete"
                                         className="input input-bordered input-primary w-full"
                                         required
                                         onChange={(e) => setEmail(e.target.value)}
@@ -90,6 +92,7 @@ const Login = () => {
                                 <div className="mb-4">
                                     <label htmlFor="password" className="block text-sm font-medium text-gray-600">Password</label>
                                     <input
+                                        id='password'
                                         type="password"
                                         name="password"
                                         className="input input-bordered input-primary w-full"
@@ -111,7 +114,7 @@ const Login = () => {
                                     type="submit"
                                     className="btn btn-primary text-white btn-block text-lg"
                                 >
-                                    Login
+                                    {loading ? <span className="loading loading-spinner loading-sm"></span> : 'Login'}
                                 </button>
                             </form>
 

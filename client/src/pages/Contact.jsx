@@ -72,6 +72,7 @@ const Contact = () => {
 
                                     <div className="mx-0 mb-1 sm:mb-4">
                                         <input type="text" placeholder="Enter Name*"
+                                            autoComplete="off"
                                             {...register('name', { required: 'Name required', })}
                                             className={`mb-2 w-full input input-bordered input-primary ${errors.name && 'border-red-500'}`}
                                         />
@@ -81,7 +82,9 @@ const Contact = () => {
                                     </div>
 
                                     <div className="mx-0 mb-1 sm:mb-4">
-                                        <input type="email" placeholder="Enter Email Address*"
+                                        <input type="email"
+                                            placeholder="Enter Email Address*"
+                                            autoComplete="off"
                                             {...register('email', {
                                                 required: 'Email is required',
                                                 pattern: {
@@ -96,15 +99,23 @@ const Contact = () => {
                                         )}
                                     </div>
                                     <div className="mx-0 mb-1 sm:mb-4">
-                                        <input type="text" placeholder="Enter Subject*"
-                                            {...register('subject', { required: 'Subject required', })} className={`mb-2 w-full input input-bordered input-primary ${errors.subject && 'border-red-500'}`} />
+                                        <input
+                                            type="text"
+                                            placeholder="Enter Subject*"
+                                            autoComplete="off"
+                                            {...register('subject', { required: 'Subject required', })}
+                                            className={`mb-2 w-full input input-bordered input-primary ${errors.subject && 'border-red-500'}`} />
                                         {errors.subject?.type === "required" && (
                                             <small className='text-red-500'>{errors.subject.message}</small>
                                         )}
                                     </div>
                                 </div>
                                 <div className="mx-0 mb-1 sm:mb-4">
-                                    <textarea cols="30" rows="5" placeholder="Write your message..." className="mb-2 w-full textarea textarea-primary"></textarea>
+                                    <textarea
+                                        name='comments'
+                                        cols="30" rows="5"
+                                        placeholder="Write your message..."
+                                        className="mb-2 w-full textarea textarea-primary"></textarea>
                                 </div>
                             </div>
                             <div className="text-center">
