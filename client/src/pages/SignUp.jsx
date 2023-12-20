@@ -14,17 +14,22 @@ const SignUp = () => {
     const [imageFile, setImageFile] = useState(null);
     const [loading, setLoading] = useState(false);
 
+
     const handleImageChange = (e) => {
         const file = e.target.files[0];
+
         if (file) {
             const reader = new FileReader();
-            reader.onload = (e) => {
-                setImage(e.target.result);
-                setImageFile(file);
+            reader.onload = () => {
+                const blob = new Blob([file], { type: file.type });
+                const objectURL = URL.createObjectURL(blob);
+                setImage(objectURL);
+                setImageFile(blob);
             };
-            reader.readAsDataURL(file);
+            reader.readAsArrayBuffer(file);
         }
     };
+
 
     const handleSignUp = (e) => {
         e.preventDefault();
