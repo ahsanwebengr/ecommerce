@@ -7,7 +7,7 @@ const NotFound = () => {
         <section className='py-10'>
             <div className="container flex items-center justify-center flex-col gap-3">
                 <img src={NotFoundImg} alt="not Found Image" />
-                <Link to={'/'} className="btn-brand">Go Back to Home</Link>
+                <Link to={'/'} className="btn btn-primary text-white">Go Back to Home</Link>
             </div>
         </section>
     );

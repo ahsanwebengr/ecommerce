@@ -4,7 +4,6 @@ import { brandLogo, userAvatar } from "../assets/index";
 import { HiOutlineMenuAlt1, HiOutlineShoppingCart } from 'react-icons/hi';
 import { AiOutlineClose } from 'react-icons/ai';
 import { useSelector } from "react-redux";
-import { ToastContainer } from "react-toastify";
 import DropDown from "./DropDown";
 
 const Header = () => {
@@ -59,7 +58,7 @@ const Header = () => {
                         <Link to={'cart'}>
                             <HiOutlineShoppingCart size={30} className="text-gray-700" />
                             <span className="absolute top-[-12px] right-[-15px] w-5 h-5 rounded-full text-white bg-purple-700 shadow-md text-xs flex items-center justify-center font-semibold font-titleFont">
-                                {productData.length}
+                                {productData?.length}
                             </span>
                         </Link>
                     </li>
@@ -71,7 +70,7 @@ const Header = () => {
                     <Link to={'/cart'} className="relative md:hidden">
                         <HiOutlineShoppingCart size={30} className="" />
                         <span className="absolute top-[-12px] right-[-15px] w-5 h-5 rounded-full text-white bg-purple-700 shadow-md text-xs flex items-center justify-center font-semibold font-titleFont">
-                            {productData.length}
+                            {productData?.length}
                         </span>
                     </Link>
 
@@ -81,18 +80,6 @@ const Header = () => {
                     </span>
                 </div>
             </div>
-            <ToastContainer
-                position="top-left"
-                autoClose={2000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="dark"
-            />
         </nav>
     );
 };

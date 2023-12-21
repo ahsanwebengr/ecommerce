@@ -3,7 +3,7 @@ import { AiFillStar, AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { addToCart } from '../redux/counterSlice';
 import { useDispatch } from 'react-redux';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 const SingleProduct = () => {
     const location = useLocation();
@@ -73,18 +73,6 @@ const SingleProduct = () => {
                     <p className='text-lg text-gray-500'>Category : <span className='capitalize font-medium'>{details.category}</span></p>
                 </div>
             </div>
-            <ToastContainer
-                position="top-left"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="dark"
-            />
         </section>
     );
 };

@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import CartItem from '../components/CartItem';
 import { HiOutlineArrowLeft } from 'react-icons/hi';
 import { useNavigate } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import SectionBanner from '../components/SectionBanner';
 import StripeCheckout from 'react-stripe-checkout';
 
@@ -17,7 +17,7 @@ const Cart = () => {
 
     useEffect(() => {
         let price = 0;
-        productData.map((item) => {
+        productData?.map((item) => {
             price += item.price * item.quantity;
             return price;
         });
@@ -48,7 +48,7 @@ const Cart = () => {
                         <div>
                             <dl className=" space-y-1 px-2 py-4">
                                 <div className="flex items-center justify-between">
-                                    <dt className="text-base md:text-lg text-gray-800">Price ({productData.length} item)</dt>
+                                    <dt className="text-base md:text-lg text-gray-800">Price ({productData?.length} item)</dt>
                                     <dd className="text-base md:text-lg font-medium text-gray-900">$ {totalAmount}</dd>
                                 </div>
                                 <div className="flex items-center justify-between pt-4">
@@ -98,18 +98,6 @@ const Cart = () => {
                     </div>
             }
             <NewsLetter />
-            <ToastContainer
-                position="top-left"
-                autoClose={3000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="dark"
-            />
         </section>
     );
 };

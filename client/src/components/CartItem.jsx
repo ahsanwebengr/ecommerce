@@ -4,7 +4,7 @@ import { HiOutlineArrowLeft } from 'react-icons/hi';
 import { BiTrashAlt } from 'react-icons/bi';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { incrementQuantity, decrementQuantity, deleteItem, resetCart } from '../redux/counterSlice';
 
 const CartItem = () => {
@@ -90,18 +90,6 @@ const CartItem = () => {
                     Go to Shopping
                 </button>
             </Link>
-            <ToastContainer
-                position="top-left"
-                autoClose={3000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="dark"
-            />
         </article>
     );
 };
