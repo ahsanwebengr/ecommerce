@@ -4,7 +4,7 @@ import { IoExitOutline } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
-import { removeUser } from "../redux/counterSlice";
+import { removeUser } from "../redux/userSlice";
 import { userAvatar } from "../assets";
 
 
@@ -13,8 +13,7 @@ const DropDown = () => {
     const auth = getAuth();
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const userInfo = useSelector((state) => state.counter.userInfo);
-
+    const userInfo = useSelector((state) => state.user.userInfo);
     const handleSignOut = () => {
         signOut(auth).then(() => {
 

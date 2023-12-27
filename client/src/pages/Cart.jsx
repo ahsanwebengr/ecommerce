@@ -11,8 +11,8 @@ import StripeCheckout from 'react-stripe-checkout';
 const Cart = () => {
     const [totalAmount, setTotalAmount] = useState('');
     const [payNow, setPayNow] = useState(false);
-    const productData = useSelector((state) => state.counter.productData);
-    const userInfo = useSelector((state) => state.counter.userInfo);
+    const productData = useSelector((state) => state.user.productData);
+    const userInfo = useSelector((state) => state.user.userInfo);
     const navigate = useNavigate();
 
     useEffect(() => {

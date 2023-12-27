@@ -36,7 +36,7 @@ const Header = () => {
     ];
 
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-    const productData = useSelector((state) => state.counter.productData);
+    const productData = useSelector((state) => state.user.productData);
 
 
 

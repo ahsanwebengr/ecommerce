@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 import { incrementQuantity, decrementQuantity, deleteItem, resetCart } from '../redux/counterSlice';
 
 const CartItem = () => {
-    const productData = useSelector((state) => state.counter.productData);
+    const productData = useSelector((state) => state.user.productData);
     const dispatch = useDispatch();
     return (
         <article className="">

@@ -10,7 +10,7 @@ import {
     REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import counterSlice from './counterSlice';
+import userSlice from './userSlice';
 
 
 const persistConfig = {
@@ -19,10 +19,10 @@ const persistConfig = {
     storage,
 };
 
-const persistedReducer = persistReducer(persistConfig, counterSlice);
+const persistedReducer = persistReducer(persistConfig, userSlice);
 
 export const store = configureStore({
-    reducer: { counter: persistedReducer },
+    reducer: { user: persistedReducer },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
             serializableCheck: {
