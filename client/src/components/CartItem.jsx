@@ -5,7 +5,7 @@ import { BiTrashAlt } from 'react-icons/bi';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { incrementQuantity, decrementQuantity, deleteItem, resetCart } from '../redux/counterSlice';
+import { incrementQuantity, decrementQuantity, deleteItem, resetCart } from '../redux/userSlice';
 
 const CartItem = () => {
     const productData = useSelector((state) => state.user.productData);

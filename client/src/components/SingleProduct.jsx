@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { AiFillStar, AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { addToCart } from '../redux/counterSlice';
+import { addToCart } from '../redux/userSlice';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 

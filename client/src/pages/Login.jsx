@@ -4,7 +4,7 @@ import { shopping } from '../assets';
 import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword } from "firebase/auth";
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { addUser } from '../redux/counterSlice';
+import { addUser } from '../redux/userSlice';
 import { AiOutlineGoogle } from 'react-icons/ai';
 import { toast } from 'react-toastify';
 

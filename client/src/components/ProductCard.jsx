@@ -3,7 +3,7 @@ import { AiFillStar } from 'react-icons/ai';
 import { FaShoppingCart } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { addToCart } from '../redux/counterSlice';
+import { addToCart } from '../redux/userSlice';
 import { ToastContainer, toast } from 'react-toastify';
 
 const ProductCard = ({ product }) => {
